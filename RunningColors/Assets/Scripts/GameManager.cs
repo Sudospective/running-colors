@@ -6,10 +6,13 @@ public class GameManager : MonoBehaviour
 {
 
     static private GameManager instance;
+
     public GameObject player;
     public Camera mainCamera;
 
     public GameManager GetInstance() { return instance; }
+
+    private PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Awake()
