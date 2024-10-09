@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Controller : MonoBehaviour
 {
     [Header("Movement")]
-
     public float moveSpeed;
 
     public float groundDrag;
@@ -13,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    bool readyToJump;
+    bool readyToJump = true;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -36,56 +35,38 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        ResetJump();
-        readyToJump = true;
     }
 
     private void Update()
     {
-        // Perform the raycast to check if the player is grounded
-        isGrounded = Physics.Raycast(transform.position + Vector3.down * 0.1f, Vector3.down, 0.5f, whatIsGround);
-        Debug.Log("Grounded Raycast Result: " + isGrounded);
 
-        // Visualize the raycast in the scene view
-        Vector3 rayStart = transform.position + Vector3.down * 0.1f;
-        Debug.DrawRay(rayStart, Vector3.down * 0.5f, isGrounded ? Color.green : Color.red);
-
-        // Log additional information
-        Debug.Log("Ray starting point: " + rayStart);
-        Debug.Log("Ray direction: " + (Vector3.down * 0.5f));
-        Debug.Log("Current Position: " + transform.position);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         MyInput();
         SpeedControl();
 
-        // Set drag based on ground state
         if (isGrounded)
+        {
             rb.drag = groundDrag;
+        }
         else
+        {
             rb.drag = 0;
+        }
     }
 
     private void FixedUpdate()
     {
-        MovePlayer(); 
+        MovePlayer();   
     }
 
     private void MyInput()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
 
-        Debug.Log("isGrounded: " + isGrounded);
-
-        if (Input.GetKeyDown(jumpKey))
+        if(Input.GetKey(jumpKey) && readyToJump && isGrounded)
         {
-            Debug.Log("Jump key pressed");
-        }
-
-        if (Input.GetKey(jumpKey) && readyToJump && isGrounded)
-        {
-            Debug.Log("Jump key pressed, grounded, and ready to jump");
-
             readyToJump = false;
 
             Jump();
@@ -96,24 +77,28 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-       moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         if (isGrounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        }
         else if(!isGrounded)
+        {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
     }
+
 
     private void SpeedControl()
     {
-        Vector3 flatVel = new  Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        Vector3 flatVel  = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         if(flatVel.magnitude > moveSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+
         }
     }
 
@@ -122,15 +107,10 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
-        Debug.Log("Jump triggered with force: " + jumpForce);
-        Debug.Log("Jump force applied: " + jumpForce);
     }
 
     private void ResetJump()
     {
-        readyToJump = true;
-
-        Debug.Log("Reset Jump Called");
+        readyToJump = true;  
     }
 }

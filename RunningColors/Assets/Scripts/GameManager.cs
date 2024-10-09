@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public GameManager GetInstance() { return instance; }
 
-    private PlayerController playerController;
+    private Controller playerController;
 
     // Start is called before the first frame update
     void Awake()
