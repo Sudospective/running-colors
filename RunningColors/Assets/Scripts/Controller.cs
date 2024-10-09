@@ -24,6 +24,11 @@ public class Controller : MonoBehaviour
 
     public Transform orientation;
 
+    [Header("Paint")]
+    public Transform shotPosition;
+    public float shotCooldown;
+    bool canShoot;
+
     float horizontalInput;
     float verticalInput;
 
@@ -35,6 +40,7 @@ public class Controller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        canShoot = true;
     }
 
     private void Update()
@@ -73,6 +79,18 @@ public class Controller : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        if (Input.GetButton("Fire1") && canShoot)
+        {
+            StartCoroutine(ShootPaint());
+        }
+    }
+
+    private IEnumerator ShootPaint()
+    {
+        Instantiate(GameManager.GetInstance().paintGlob, shotPosition.position, GameManager.GetInstance().mainCamera.transform.rotation);
+        canShoot = false;
+        yield return new WaitForSeconds(shotCooldown);
+        canShoot = true;
     }
 
     private void MovePlayer()
@@ -111,6 +129,6 @@ public class Controller : MonoBehaviour
 
     private void ResetJump()
     {
-        readyToJump = true;  
+        readyToJump = true;
     }
 }
