@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class PaintGlob : MonoBehaviour
 {
-
-    public enum PaintColor
-    {
-        Green, Blue, Purple
-    }
-
     [Header("Paint")]
-    public PaintColor paintColor;
+    public Color paintColor;
     public float shotSpeed;
+    public int shotSize;
 
     private Renderer model;
     private Rigidbody body;
@@ -21,19 +16,7 @@ public class PaintGlob : MonoBehaviour
     void Start()
     {
         model = GetComponent<Renderer>();
-        Color col = Color.white;
-        switch (paintColor) {
-            case PaintColor.Green:
-                col = Color.green;
-                break;
-            case PaintColor.Blue:
-                col = Color.blue;
-                break;
-            case PaintColor.Purple:
-                col = new Color(1.0f, 0.0f, 1.0f, 1.0f);
-                break;
-        }
-        model.material.color = col;
+        model.material.color = paintColor;
 
         body = GetComponent<Rigidbody>();
         body.velocity = GameManager.GetInstance().player.GetComponent<Rigidbody>().velocity + (transform.forward * shotSpeed);
@@ -55,7 +38,9 @@ public class PaintGlob : MonoBehaviour
         IPaint paint = other.GetComponent<IPaint>();
         if (paint != null)
         {
-            paint.PaintSurface();
+            Vector3 pos = other.ClosestPoint(transform.position);
+            Debug.Log(pos.ToString() + ", " + transform.position.ToString());
+            paint.PaintSurface(this, pos);
         }
         Destroy(gameObject);
     }
