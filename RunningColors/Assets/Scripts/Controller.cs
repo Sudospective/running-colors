@@ -79,10 +79,10 @@ public class Controller : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        if (Input.GetButton("Fire1") && canShoot)
+       /* if (Input.GetButton("Fire1") && canShoot)
         {
             StartCoroutine(ShootPaint());
-        }
+        }*/
     }
 
     private IEnumerator ShootPaint()
