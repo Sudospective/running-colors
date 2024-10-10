@@ -73,9 +73,10 @@ GameObject:
   - component: {fileID: 5284681358075736747}
   - component: {fileID: 5038100338034464188}
   - component: {fileID: 4952636788253404216}
+  - component: {fileID: 3818841336248425591}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +151,29 @@ MonoBehaviour:
   orientation: {fileID: 730548462662064568}
   shotPosition: {fileID: 198636516993906089}
   shotCooldown: 0.5
+--- !u!136 &3818841336248425591
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6672519285676716760}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6687954308253032159
 GameObject:
   m_ObjectHideFlags: 0
