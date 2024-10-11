@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintColor: {r: 0, g: 1, b: 0.066381454, a: 0}
   shotSpeed: 20
-  shotSize: 20
+  shotSize: 40
 --- !u!54 &7507184838071613467
 Rigidbody:
   m_ObjectHideFlags: 0

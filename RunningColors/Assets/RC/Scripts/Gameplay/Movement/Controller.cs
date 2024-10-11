@@ -120,11 +120,6 @@ public class Controller : MonoBehaviour
         {
             StartCoroutine(ShootPaint());
         }
-        if (Input.GetButton("Fire1") && canShoot)
-        {
-            StartCoroutine(ShootPaint());
-        }
-
 
         if (Input.GetKeyDown(crouchKey))
         {

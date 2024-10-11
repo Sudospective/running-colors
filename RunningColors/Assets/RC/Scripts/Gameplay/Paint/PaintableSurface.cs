@@ -5,6 +5,7 @@ using UnityEngine;
 public class PaintableSurface : MonoBehaviour,
     IPaint
 {
+    public int resolution;
     private Texture2D tex;
 
     // Start is called before the first frame update
@@ -15,7 +16,7 @@ public class PaintableSurface : MonoBehaviour,
         {
             size.y = size.z;
         }
-        tex = new Texture2D((int)size.x * 64, (int)size.x * 64);
+        tex = new Texture2D((int)size.x * resolution, (int)size.x * resolution);
         Material mat = GetComponent<Renderer>().material;
         Debug.Log(mat.ToString());
         mat.mainTexture = tex;
