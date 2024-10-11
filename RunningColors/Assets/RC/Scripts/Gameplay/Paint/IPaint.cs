@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IPaint
 {
-    public void PaintSurface();
+    public void PaintSurface(PaintGlob glob, Vector3 position);
 }
