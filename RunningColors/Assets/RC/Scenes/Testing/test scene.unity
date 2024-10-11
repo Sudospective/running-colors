@@ -123,6 +123,43 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &22103896
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4079900991051046901, guid: e275cb2daa9186048a26b35a65a45077, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1352024216}
+    - target: {fileID: 4079900991051046901, guid: e275cb2daa9186048a26b35a65a45077, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1197053315}
+    - target: {fileID: 5506929210181227578, guid: e275cb2daa9186048a26b35a65a45077, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358950632491947439, guid: e275cb2daa9186048a26b35a65a45077, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358950632491947439, guid: e275cb2daa9186048a26b35a65a45077, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358950632491947439, guid: e275cb2daa9186048a26b35a65a45077, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e275cb2daa9186048a26b35a65a45077, type: 3}
 --- !u!1 &77696745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1530,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1197053315 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6083606322561442543, guid: c92bed7f0bb05574295e1b2a46a65139, type: 3}
+  m_PrefabInstance: {fileID: 7644827328856503362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1203053922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,6 +2288,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1352024216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 640975838099146118, guid: 2bbdc9b4a65d33a41ba73e8ee29cf10d, type: 3}
+  m_PrefabInstance: {fileID: 7941692007620304114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1423289369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,6 +3500,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1208711154}
   - {fileID: 1240632835}
+  - {fileID: 22103896}
   - {fileID: 7644827328856503362}
   - {fileID: 7941692007620304114}
   - {fileID: 1423289373}
