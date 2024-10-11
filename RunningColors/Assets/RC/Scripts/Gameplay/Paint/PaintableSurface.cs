@@ -39,7 +39,7 @@ public class PaintableSurface : MonoBehaviour,
         {
             for (int x = Mathf.Max(pos.x - glob.shotSize, 0); x < Mathf.Min(pos.x + glob.shotSize, tex.width); x++)
             {
-                tex.SetPixel(x, y, glob.paintColor);
+                tex.SetPixel(tex.width - x, tex.height - y, glob.paintColor);
             }
         }
         tex.Apply();
