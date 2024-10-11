@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolution: 64
+  inputTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!65 &5270253335305964663
 BoxCollider:
   m_ObjectHideFlags: 0

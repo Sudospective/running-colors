@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Camera mainCamera;
     public GameObject paintGlob;
+    [Range(4, 64)] public int globSize;
+    [Range(0, 3)] public int paintResolution;
 
     public static GameManager GetInstance() { return instance; }
 
