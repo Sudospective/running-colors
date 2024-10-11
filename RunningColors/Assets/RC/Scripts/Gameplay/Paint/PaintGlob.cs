@@ -39,7 +39,7 @@ public class PaintGlob : MonoBehaviour
         if (paint != null)
         {
             Vector3 pos = other.ClosestPoint(transform.position);
-            Debug.Log(pos.ToString() + ", " + transform.position.ToString());
+            Debug.Log(pos.normalized.ToString() + ", " + transform.position.ToString());
             paint.PaintSurface(this, pos);
         }
         Destroy(gameObject);

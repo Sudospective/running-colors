@@ -90,7 +90,7 @@ public class Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();   
+        MovePlayer();
     }
 
     private void MyInput()
@@ -106,10 +106,10 @@ public class Controller : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-       /* if (Input.GetButton("Fire1") && canShoot)
+        if (Input.GetButton("Fire1") && canShoot)
         {
             StartCoroutine(ShootPaint());
-        }*/
+        }
 
         if(Input.GetKeyDown(crouchKey))
         {
