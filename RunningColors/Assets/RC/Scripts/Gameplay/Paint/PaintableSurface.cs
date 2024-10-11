@@ -10,8 +10,14 @@ public class PaintableSurface : MonoBehaviour,
     // Start is called before the first frame update
     void Start()
     {
-        tex = new Texture2D(256, 256);
+        Vector3 size = GetComponent<Collider>().bounds.size;
+        if (size.y <= 0)
+        {
+            size.y = size.z;
+        }
+        tex = new Texture2D((int)size.x * 64, (int)size.x * 64);
         Material mat = GetComponent<Renderer>().material;
+        Debug.Log(mat.ToString());
         mat.mainTexture = tex;
         for (int y = 0; y < tex.height; y++)
         {
@@ -31,9 +37,11 @@ public class PaintableSurface : MonoBehaviour,
 
     public void PaintSurface(PaintGlob glob, Vector3 position) {
         Vector2Int pos = new(
-            (int)Mathf.Floor(position.normalized.x * tex.width),
-            (int)Mathf.Floor(position.normalized.y * tex.height)
+            (int)Mathf.Floor(position.x * tex.width),
+            (int)Mathf.Floor(position.y * tex.height)
         );
+
+        //Debug.Log(pos.ToString());
 
         for (int y = Mathf.Max(pos.y - glob.shotSize, 0); y < Mathf.Min(pos.y + glob.shotSize, tex.height); y++)
         {

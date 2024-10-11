@@ -40,6 +40,18 @@ public class PaintGlob : MonoBehaviour
         {
             Vector3 pos = other.ClosestPoint(transform.position);
             pos.x += other.bounds.size.x * 0.5f;
+            pos.x /= other.bounds.size.x;
+            if (other.gameObject.layer == LayerMask.NameToLayer("whatIsGround")) // Wall
+            {
+                pos.y = pos.z;
+                pos.y += other.bounds.size.z * 0.5f;
+                pos.y /= other.bounds.size.z;
+            }
+            else
+            {
+                pos.y /= other.bounds.size.y;
+            }
+            Debug.Log(pos.ToString());
             paint.PaintSurface(this, pos);
         }
         Destroy(gameObject);
