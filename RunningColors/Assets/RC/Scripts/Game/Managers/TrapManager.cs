@@ -59,12 +59,17 @@ public class TrapManager : MonoBehaviour
         {
             Debug.Log("Fan is on and player detected.");
 
-            Rigidbody playerRb = other.GetComponent<Rigidbody>();
+            Rigidbody playerRb = other.attachedRigidbody;
+            
             if(playerRb != null)
             {
                 Debug.Log("Applying force to player.");
 
                 playerRb.AddForce(pushDir * pushForce, ForceMode.Impulse);
+            }
+            else
+            {
+                Debug.Log("The player's rigidbody is not found.");
             }
         }
     }
