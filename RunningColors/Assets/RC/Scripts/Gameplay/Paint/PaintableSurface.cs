@@ -59,4 +59,12 @@ public class PaintableSurface : MonoBehaviour,
         }
         tex.Apply();
     }
+    public Color GetSurfacePointColor(Vector3 position)
+    {
+        Vector2Int pos = new(
+            (int)Mathf.Floor(position.x * tex.width),
+            (int)Mathf.Floor(position.y * tex.height)
+        );
+        return tex.GetPixel(tex.width - pos.x, tex.height - pos.y);
+    }
 }
