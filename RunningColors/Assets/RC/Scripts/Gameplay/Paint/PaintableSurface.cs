@@ -10,12 +10,8 @@ public class PaintableSurface : MonoBehaviour,
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 size = GetComponent<Collider>().bounds.size;
-        if (gameObject.layer == LayerMask.NameToLayer("whatIsGround"))
-        {
-            size.y = size.z;
-        }
-
+        //Vector3 size = GetComponent<Collider>().bounds.size;
+        Vector3 size = transform.localScale;
         int pow = (int)Mathf.Pow(2.0f, (float)GameManager.GetInstance().paintResolution + 3);
         int globSize = GameManager.GetInstance().globSize;
 
@@ -28,7 +24,7 @@ public class PaintableSurface : MonoBehaviour,
         {
             for (int x = 0; x < tex.width; x++)
             {
-                tex.SetPixel(x, y, mat.color);
+                tex.SetPixel(x, y, Color.white);
             }
         }
         tex.Apply();
@@ -46,15 +42,13 @@ public class PaintableSurface : MonoBehaviour,
             (int)Mathf.Floor(position.y * tex.height)
         );
 
-        Debug.Log(pos.ToString());
-
         int scaledGlobSize = GameManager.GetInstance().globSize * (int)(Mathf.Pow(2.0f, (float)GameManager.GetInstance().paintResolution + 3) / 64);
 
         for (int y = Mathf.Max(pos.y - scaledGlobSize, 0); y < Mathf.Min(pos.y + scaledGlobSize, tex.height); y++)
         {
             for (int x = Mathf.Max(pos.x - scaledGlobSize, 0); x < Mathf.Min(pos.x + scaledGlobSize, tex.width); x++)
             {
-                tex.SetPixel(tex.width - x, tex.height - y, glob.paintColor);
+                tex.SetPixel(x, y, glob.paintColor);
             }
         }
         tex.Apply();
@@ -65,6 +59,6 @@ public class PaintableSurface : MonoBehaviour,
             (int)Mathf.Floor(position.x * tex.width),
             (int)Mathf.Floor(position.y * tex.height)
         );
-        return tex.GetPixel(tex.width - pos.x, tex.height - pos.y);
+        return tex.GetPixel(pos.x, pos.y);
     }
 }
