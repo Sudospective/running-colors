@@ -174,11 +174,11 @@ PrefabInstance:
     - target: {fileID: 5668408340925688424, guid: c92bed7f0bb05574295e1b2a46a65139, type: 3}
       propertyPath: orientation
       value: 
-      objectReference: {fileID: 1508376288}
+      objectReference: {fileID: 1125760989}
     - target: {fileID: 7636238988380640407, guid: c92bed7f0bb05574295e1b2a46a65139, type: 3}
       propertyPath: cameraPosition
       value: 
-      objectReference: {fileID: 1797110178}
+      objectReference: {fileID: 1184092463}
     - target: {fileID: 8565657885399618941, guid: c92bed7f0bb05574295e1b2a46a65139, type: 3}
       propertyPath: m_Name
       value: CamHolder
@@ -192,6 +192,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92bed7f0bb05574295e1b2a46a65139, type: 3}
+--- !u!1 &377300972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 640975838099146118, guid: 2bbdc9b4a65d33a41ba73e8ee29cf10d, type: 3}
+  m_PrefabInstance: {fileID: 549051149}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &549051149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -434,6 +439,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &789863539 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6083606322561442543, guid: c92bed7f0bb05574295e1b2a46a65139, type: 3}
+  m_PrefabInstance: {fileID: 332422453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &930679216
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,9 +543,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1508376288 stripped
+--- !u!4 &1125760989 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 730548462662064568, guid: 2bbdc9b4a65d33a41ba73e8ee29cf10d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2190329491179040338, guid: 2bbdc9b4a65d33a41ba73e8ee29cf10d, type: 3}
+  m_PrefabInstance: {fileID: 549051149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1184092463 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9147696870230128657, guid: 2bbdc9b4a65d33a41ba73e8ee29cf10d, type: 3}
   m_PrefabInstance: {fileID: 549051149}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1593298370
@@ -656,11 +671,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!4 &1797110178 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 198636516993906089, guid: 2bbdc9b4a65d33a41ba73e8ee29cf10d, type: 3}
-  m_PrefabInstance: {fileID: 549051149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1868774391
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +683,7 @@ GameObject:
   - component: {fileID: 1868774394}
   - component: {fileID: 1868774393}
   - component: {fileID: 1868774392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,6 +785,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3211110544766757940, guid: 930fe53038f68224cab94ea497476be5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 377300972}
+    - target: {fileID: 3211110544766757940, guid: 930fe53038f68224cab94ea497476be5, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 789863539}
     - target: {fileID: 6350234966952381629, guid: 930fe53038f68224cab94ea497476be5, type: 3}
       propertyPath: m_Name
       value: GameManager

@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer Instance;
+
+    [Tooltip("TMP Text UI content for timer")]
     [SerializeField] TMP_Text timerText;
 
     bool timerActive;
 
     float currentTime;
 
+    void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         currentTime = 0;
+        StartTimer();
     }
 
     void Update()
