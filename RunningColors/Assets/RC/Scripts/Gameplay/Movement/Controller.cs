@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Controller : MonoBehaviour
@@ -48,6 +49,9 @@ public class Controller : MonoBehaviour
     [Header("Paint")]
     public Transform shotPosition;
     public float shotCooldown;
+    public TMP_Text paintCurrent;
+    private int currentPaint;
+    public int maxPaint;
     bool canShoot;
 
     float horizontalInput;
@@ -71,6 +75,7 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
+        maxPaint = currentPaint;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         canShoot = true;
@@ -116,7 +121,7 @@ public class Controller : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        if (Input.GetButton("Fire1") && canShoot)
+        if (Input.GetButton("Fire1") && canShoot && currentPaint > 0)
         {
             StartCoroutine(ShootPaint());
         }
@@ -136,10 +141,23 @@ public class Controller : MonoBehaviour
 
     private IEnumerator ShootPaint()
     {
+
+        currentPaint--;
+        UpdatePaintUI();
         Instantiate(GameManager.GetInstance().paintGlob, shotPosition.position, GameManager.GetInstance().mainCamera.transform.rotation);
         canShoot = false;
         yield return new WaitForSeconds(shotCooldown);
         canShoot = true;
+    }
+
+    private void UpdatePaintUI()
+    {
+        paintCurrent.text = "Paint: " + currentPaint.ToString();
+
+        if (currentPaint <= 0)
+        {
+            canShoot = false;
+        }
     }
 
 
