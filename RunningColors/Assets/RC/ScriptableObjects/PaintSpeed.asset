@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89aa170033f57d743910a7769ecca9c4, type: 3}
   m_Name: PaintSpeed
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   color: {r: 0.41355163, g: 0.8018868, b: 0.48093596, a: 0}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89aa170033f57d743910a7769ecca9c4, type: 3}
   m_Name: PaintJump
   m_EditorClassIdentifier: 
-  type: 1
+  type: 2
   color: {r: 0.4117647, g: 0.67088723, b: 0.8, a: 0}

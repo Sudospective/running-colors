@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Camera mainCamera;
     public GameObject paintGlob;
+    [Tooltip("The size of a glob of paint (move to paintbrush later)")]
     [Range(4, 64)] public int globSize;
+    [Tooltip("The resolution of the paintable surfaces")]
     [Range(0, 3)] public int paintResolution;
 
     [Tooltip("This is the max amount of paint")]
