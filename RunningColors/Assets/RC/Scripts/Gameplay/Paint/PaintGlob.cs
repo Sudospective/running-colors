@@ -5,6 +5,7 @@ using UnityEngine;
 public class PaintGlob : MonoBehaviour
 {
     [Header("Paint")]
+    public PaintType paintType;
     public Color paintColor;
     public float shotSpeed;
     public int shotSize;

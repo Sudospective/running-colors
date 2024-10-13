@@ -6,6 +6,7 @@ public class PaintableSurface : MonoBehaviour,
     IPaint
 {
     private Texture2D tex;
+    private PaintType[,] paintTypes;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class PaintableSurface : MonoBehaviour,
         int globSize = GameManager.GetInstance().globSize;
 
         tex = new Texture2D((int)size.x * pow, (int)size.y * pow);
+        paintTypes = new PaintType[tex.width, tex.height];
 
         Material mat = GetComponent<Renderer>().material;
         mat.mainTexture = tex;
@@ -25,6 +27,7 @@ public class PaintableSurface : MonoBehaviour,
             for (int x = 0; x < tex.width; x++)
             {
                 tex.SetPixel(x, y, Color.white);
+                paintTypes[x, y] = PaintType.None;
             }
         }
         tex.Apply();
@@ -47,11 +50,12 @@ public class PaintableSurface : MonoBehaviour,
             for (int x = Mathf.Max(pos.x - scaledGlobSize, 0); x < Mathf.Min(pos.x + scaledGlobSize, tex.width); x++)
             {
                 tex.SetPixel(x, y, glob.paintColor);
+                paintTypes[x, y] = glob.paintType;
             }
         }
         tex.Apply();
     }
-    public Color GetSurfacePointColor(Vector3 position)
+    public PaintType GetSurfacePaintType(Vector3 position)
     {
         position = transform.InverseTransformPoint(position);
         position += new Vector3(0.5f, 0.5f);
@@ -60,6 +64,6 @@ public class PaintableSurface : MonoBehaviour,
             (int)Mathf.Floor(position.x * tex.width),
             (int)Mathf.Floor(position.y * tex.height)
         );
-        return tex.GetPixel(pos.x, pos.y);
+        return paintTypes[pos.x, pos.y];
     }
 }
