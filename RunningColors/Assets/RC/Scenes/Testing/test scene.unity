@@ -434,6 +434,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3431094080818301358, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface

@@ -38,11 +38,11 @@ public class PaintGlob : MonoBehaviour
         IPaint paint = other.GetComponent<IPaint>();
         if (paint != null)
         {
-            Vector3 pos = Physics.ClosestPoint(transform.position, other, other.transform.position, Quaternion.identity);
-            Debug.Log(pos.ToString());
-            //pos.x += other.bounds.size.x * 0.5f;
-            pos.x /= other.bounds.size.x;
-            pos.y /= other.bounds.size.y;
+            Vector3 pos = other.ClosestPoint(transform.position);
+            pos += other.transform.localScale * 0.5f - other.transform.position;
+            pos.x /= other.transform.localScale.x;
+            pos.y /= other.transform.localScale.y;
+            pos.z /= other.transform.localScale.z;
             paint.PaintSurface(this, pos);
         }
         Destroy(gameObject);
