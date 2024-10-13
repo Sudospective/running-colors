@@ -39,19 +39,6 @@ public class PaintGlob : MonoBehaviour
         if (paint != null)
         {
             Vector3 pos = other.ClosestPoint(transform.position);
-            float radX = other.transform.rotation.eulerAngles.x * Mathf.Deg2Rad;
-            float radY = other.transform.rotation.eulerAngles.y * Mathf.Deg2Rad;
-            Vector3 scale = new Vector3(
-                1 + Mathf.Abs(Mathf.Tan(radY)),
-                1 + Mathf.Abs(Mathf.Tan(radX)),
-                1
-            );
-            pos.Scale(scale);
-            pos += other.transform.localScale * 0.5f;
-            pos -= Vector3.Scale(other.transform.position, scale);
-            pos.x /= other.transform.localScale.x;
-            pos.y /= other.transform.localScale.y;
-            pos.z /= other.transform.localScale.z;
             paint.PaintSurface(this, pos);
         }
         Destroy(gameObject);

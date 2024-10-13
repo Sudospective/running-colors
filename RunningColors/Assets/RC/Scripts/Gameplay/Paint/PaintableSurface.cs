@@ -30,13 +30,11 @@ public class PaintableSurface : MonoBehaviour,
         tex.Apply();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PaintSurface(PaintGlob glob, Vector3 position)
     {
-        
-    }
+        position = transform.InverseTransformPoint(position);
+        position += new Vector3(0.5f, 0.5f);
 
-    public void PaintSurface(PaintGlob glob, Vector3 position) {
         Vector2Int pos = new(
             (int)Mathf.Floor(position.x * tex.width),
             (int)Mathf.Floor(position.y * tex.height)
@@ -55,6 +53,9 @@ public class PaintableSurface : MonoBehaviour,
     }
     public Color GetSurfacePointColor(Vector3 position)
     {
+        position = transform.InverseTransformPoint(position);
+        position += new Vector3(0.5f, 0.5f);
+
         Vector2Int pos = new(
             (int)Mathf.Floor(position.x * tex.width),
             (int)Mathf.Floor(position.y * tex.height)
