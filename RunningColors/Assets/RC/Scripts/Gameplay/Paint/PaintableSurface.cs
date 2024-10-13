@@ -35,9 +35,9 @@ public class PaintableSurface : MonoBehaviour,
 
     public void PaintSurface(PaintGlob glob, Vector3 position)
     {
+        // Convert world space to texture position
         position = transform.InverseTransformPoint(position);
         position += new Vector3(0.5f, 0.5f);
-
         Vector2Int pos = new(
             (int)Mathf.Floor(position.x * tex.width),
             (int)Mathf.Floor(position.y * tex.height)
@@ -45,6 +45,7 @@ public class PaintableSurface : MonoBehaviour,
 
         int scaledGlobSize = GameManager.GetInstance().globSize * (int)(Mathf.Pow(2.0f, (float)GameManager.GetInstance().paintResolution + 3) / 64);
 
+        // Painting the surface
         for (int y = Mathf.Max(pos.y - scaledGlobSize, 0); y < Mathf.Min(pos.y + scaledGlobSize, tex.height); y++)
         {
             for (int x = Mathf.Max(pos.x - scaledGlobSize, 0); x < Mathf.Min(pos.x + scaledGlobSize, tex.width); x++)
@@ -57,13 +58,14 @@ public class PaintableSurface : MonoBehaviour,
     }
     public PaintType GetSurfacePaintType(Vector3 position)
     {
+        // Convert world space to texture position
         position = transform.InverseTransformPoint(position);
         position += new Vector3(0.5f, 0.5f);
-
         Vector2Int pos = new(
             (int)Mathf.Floor(position.x * tex.width),
             (int)Mathf.Floor(position.y * tex.height)
         );
+
         return paintTypes[pos.x, pos.y];
     }
 }
