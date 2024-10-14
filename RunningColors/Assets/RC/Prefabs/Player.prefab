@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6725799906040182387}
   - component: {fileID: -3604570529390434670}
   - component: {fileID: 3537497628015831834}
+  - component: {fileID: 4761538711672929105}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -134,7 +135,7 @@ MonoBehaviour:
   shotPosition: {fileID: 9147696870230128657}
   shotCooldown: 1
   paintCurrent: {fileID: 0}
-  maxPaint: 0
+  maxPaint: 999
   state: 0
   sliding: 0
   wallrunning: 0
@@ -209,6 +210,20 @@ MonoBehaviour:
   detectionLength: 0.7
   sphereCastRadius: 0.25
   maxWallLookAngle: 30
+--- !u!114 &4761538711672929105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640975838099146118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08e2f996ddc2774f85a4c8abeac3829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenFader: {fileID: 0}
+  fallThreshold: -5
 --- !u!1 &1926594232707193225
 GameObject:
   m_ObjectHideFlags: 0
