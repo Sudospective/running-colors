@@ -26,7 +26,7 @@ public class PaintableSurface : MonoBehaviour,
         {
             for (int x = 0; x < tex.width; x++)
             {
-                tex.SetPixel(x, y, Color.white);
+                tex.SetPixel(x, y, Color.clear);
                 paintTypes[x, y] = PaintType.None;
             }
         }
@@ -68,7 +68,7 @@ public class PaintableSurface : MonoBehaviour,
 
         PaintType ret = PaintType.None;
 
-        if (pos.x < tex.width || pos.y < tex.height)
+        if (pos.x < tex.width && pos.y < tex.height)
         {
             ret = paintTypes[pos.x, pos.y];
         }
