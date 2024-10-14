@@ -10,6 +10,7 @@ public class Controller : MonoBehaviour
     public float walkSpeed;
     public float sprintSpeed;
     public float slideSpeed;
+    public float wallrunSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -66,12 +67,14 @@ public class Controller : MonoBehaviour
     {
         walking,
         sprinting,
+        wallrunning,
         crouching,
         sliding,
         air
     }
 
     public bool sliding;
+    public bool wallrunning;
 
     private void Start()
     {
@@ -163,6 +166,13 @@ public class Controller : MonoBehaviour
 
     private void StateHandler()
     {
+
+        if(wallrunning)
+        {
+            state = MovementState.wallrunning;
+            desiredMoveSpeed = wallrunSpeed;
+        }
+
         if(sliding)
         {
             state = MovementState.sliding;
@@ -262,7 +272,7 @@ public class Controller : MonoBehaviour
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
 
-        rb.useGravity = !OnSlope();
+        if (!wallrunning) rb.useGravity = !OnSlope();
     }
 
 
