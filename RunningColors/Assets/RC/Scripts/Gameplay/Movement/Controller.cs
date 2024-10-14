@@ -78,7 +78,7 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
-        maxPaint = currentPaint;
+        currentPaint = maxPaint;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         canShoot = true;
@@ -144,7 +144,6 @@ public class Controller : MonoBehaviour
 
     private IEnumerator ShootPaint()
     {
-
         currentPaint--;
         UpdatePaintUI();
         Instantiate(GameManager.GetInstance().paintGlob, shotPosition.position, GameManager.GetInstance().mainCamera.transform.rotation);
