@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228dd74557dff2248ad7bf12d11a38eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paintType: 1
   paintColor: {r: 0, g: 1, b: 0.066381454, a: 0}
   shotSpeed: 20
   shotSize: 40

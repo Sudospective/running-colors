@@ -66,9 +66,13 @@ public class PaintableSurface : MonoBehaviour,
             (int)Mathf.Floor(position.y * tex.height)
         );
 
-        if (pos.x >= tex.width || pos.y >= tex.height)
-            return PaintType.None;
-        else
-            return paintTypes[pos.x, pos.y];
+        PaintType ret = PaintType.None;
+
+        if (pos.x < tex.width || pos.y < tex.height)
+        {
+            ret = paintTypes[pos.x, pos.y];
+        }
+
+        return ret;
     }
 }

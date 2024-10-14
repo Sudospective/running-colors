@@ -53,6 +53,7 @@ public class Controller : MonoBehaviour
     public TMP_Text paintCurrent;
     private int currentPaint;
     public int maxPaint;
+    PaintType interactivePaintType;
     bool canShoot;
 
     float horizontalInput;
@@ -75,6 +76,8 @@ public class Controller : MonoBehaviour
 
     public bool sliding;
     public bool wallrunning;
+
+    private Collider paintSurface;
 
     private void Start()
     {
@@ -106,9 +109,37 @@ public class Controller : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            return;
+        }
+
+        IPaint paint = other.GetComponent<IPaint>();
+        if (paint != null)
+        {
+            Vector3 pos = other.ClosestPoint(transform.position);
+            interactivePaintType = paint.GetSurfacePaintType(pos);
+        }
+        else
+        {
+            interactivePaintType = PaintType.None;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        interactivePaintType = PaintType.None;
+    }
+
     private void FixedUpdate()
     {
         MovePlayer();
+    }
+
+    public void UpdatePaintStatus()
+    {
     }
 
     private void MyInput()
