@@ -224,13 +224,13 @@ public class Controller : MonoBehaviour
             desiredMoveSpeed = crouchSpeed;
         }
 
-        else if (isGrounded && Input.GetKey(sprintKey))
+        else if (isGrounded && Input.GetKey(sprintKey) && IsMoving())
         {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
         }
 
-        else if (isGrounded)
+        else if (isGrounded && IsMoving())
         {
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
@@ -346,6 +346,20 @@ public class Controller : MonoBehaviour
         readyToJump = true;
 
         exitSlope = false;
+    }
+
+    private bool IsMoving()
+    {
+        return horizontalInput != 0 || verticalInput != 0;
+    }
+
+    public bool IsWallLeft()
+    {
+        return Physics.Raycast(transform.position, -orientation.right, 1f, whatIsGround);
+    }
+    public bool IsWallRight()
+    {
+        return Physics.Raycast(transform.position, orientation.right, 1f, whatIsGround);
     }
 
     public bool OnSlope()
