@@ -68,7 +68,7 @@ public class PaintableSurface : MonoBehaviour,
 
         PaintType ret = PaintType.None;
 
-        if (pos.x < tex.width && pos.y < tex.height)
+        if (pos.x >= 0 && pos.x < tex.width && pos.y >= 0 && pos.y < tex.height)
         {
             ret = paintTypes[pos.x, pos.y];
         }

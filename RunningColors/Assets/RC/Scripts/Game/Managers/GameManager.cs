@@ -20,17 +20,50 @@ public class GameManager : MonoBehaviour
 
     public static GameManager GetInstance() { return instance; }
 
-    private GameObject playerObject;
     private Controller playerController;
 
     void Awake()
     {
-        instance = this;
-        playerController = player.GetComponent<Controller>();
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
     {
+        mainCamera = Camera.main;
+
+        if(mainCamera == null)
+        {
+            Debug.Log("Main Camera not found.");
+        }
+        
         PaintCur = paintMax;
     }
+
+    public void SetPlayer(GameObject newPlayer)
+    {
+        if(newPlayer != null)
+        {
+            player = newPlayer;
+            playerController = player.GetComponent<Controller>();
+
+            if (playerController == null)
+            {
+                Debug.Log("Controller not found on player");
+            }
+            else
+            {
+                Debug.Log("Player is assigned to GameManager");
+            }
+        }
+        
+    }
+
 }

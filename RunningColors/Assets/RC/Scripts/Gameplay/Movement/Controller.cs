@@ -185,6 +185,12 @@ public class Controller : MonoBehaviour
 
     private void UpdatePaintUI()
     {
+        if(paintCurrent == null)
+        {
+            Debug.Log("Paint UI (TextMeshPro) not assigned in controller");
+            return;
+        }
+        
         paintCurrent.text = "Paint: " + currentPaint.ToString();
 
         if (currentPaint <= 0)
