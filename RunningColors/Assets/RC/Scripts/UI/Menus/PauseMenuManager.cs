@@ -8,19 +8,19 @@ public class PauseMenuManager : MonoBehaviour
     [Tooltip("This the acive menu")]
     public GameObject menuActive;
 
-    [Tooltip("Root canvas used to toggle Pause Menu activation")]
+    [Tooltip("Root canvas used to toggle Menu activation")]
     [SerializeField] GameObject menuRoot;
 
-    [Tooltip("Pause Menu panel")]
+    [Tooltip("Panel used to toggle Pause Menu activation")]
     [SerializeField] GameObject menuPause;
 
-    [Tooltip("Options Menu panel")]
+    [Tooltip("Panel used to toggle Options Menu activation")]
     [SerializeField] GameObject menuOptions;
 
-    [Tooltip("Settings Menu panel")]
+    [Tooltip("Panel used to toggle Settings Menu activation")]
     [SerializeField] GameObject menuSettings;
 
-    [Tooltip("Controls Menu panel")]
+    [Tooltip("Panel used to toggle Controls Menu activation")]
     [SerializeField] GameObject menuControls;
 
     Stack<GameObject> openedMenus = new Stack<GameObject>();
