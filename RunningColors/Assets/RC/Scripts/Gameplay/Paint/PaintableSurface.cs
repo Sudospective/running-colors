@@ -26,7 +26,7 @@ public class PaintableSurface : MonoBehaviour,
         {
             for (int x = 0; x < tex.width; x++)
             {
-                tex.SetPixel(x, y, Color.clear);
+                tex.SetPixel(x, y, Color.white);
                 paintTypes[x, y] = PaintType.None;
             }
         }
