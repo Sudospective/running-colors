@@ -176,14 +176,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5668408340925688424, guid: c92bed7f0bb05574295e1b2a46a65139, type: 3}
-      propertyPath: orientation
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7636238988380640407, guid: c92bed7f0bb05574295e1b2a46a65139, type: 3}
-      propertyPath: cameraPosition
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8565657885399618941, guid: c92bed7f0bb05574295e1b2a46a65139, type: 3}
       propertyPath: m_Name
       value: CamHolder
@@ -425,23 +417,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 75.61
+      value: 75.49
       objectReference: {fileID: 0}
     - target: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.41224223
+      value: -0.40802696
       objectReference: {fileID: 0}
     - target: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5780747
+      value: -0.5720906
       objectReference: {fileID: 0}
     - target: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.40551624
+      value: -0.40975738
       objectReference: {fileID: 0}
     - target: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5757105
+      value: 0.5816573
       objectReference: {fileID: 0}
     - target: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -449,7 +441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90.48
+      value: 91.664
       objectReference: {fileID: 0}
     - target: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -993,10 +985,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4079900991051046901, guid: e275cb2daa9186048a26b35a65a45077, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 4079900991051046901, guid: e275cb2daa9186048a26b35a65a45077, type: 3}
       propertyPath: mainCamera
       value: 
@@ -1691,6 +1679,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598028280654923397, guid: c8083f38eba5caa4e8ff1a8c0dd6d96d, type: 3}
+      propertyPath: screenFader
+      value: 
+      objectReference: {fileID: 1426858488}
     - target: {fileID: 6570665192545870159, guid: c8083f38eba5caa4e8ff1a8c0dd6d96d, type: 3}
       propertyPath: m_Name
       value: PlayerSpawner

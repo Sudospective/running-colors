@@ -153,6 +153,11 @@ MonoBehaviour:
   sensX: 400
   sensY: 400
   orientation: {fileID: 0}
+  walkBobbingSpeed: 14
+  sprintBobbingSpeed: 18
+  bobbingAmount: 0.05
+  wallrunTiltAngle: 15
+  tiltSpeed: 5
 --- !u!1 &8565657885399618941
 GameObject:
   m_ObjectHideFlags: 0

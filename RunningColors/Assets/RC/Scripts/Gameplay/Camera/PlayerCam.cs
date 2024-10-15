@@ -37,6 +37,16 @@ public class PlayerCam : MonoBehaviour
 
     private void Update()
     {
+        if(playerController == null)
+        {
+            playerController = FindObjectOfType<Controller>();
+            if(playerController == null )
+            {
+                return;
+            }
+        }
+        
+        
         HandleCameraRotation();
         HandleCameraBobbing();
         HandleWallrunTilt();
@@ -59,6 +69,7 @@ public class PlayerCam : MonoBehaviour
 
     private void HandleCameraBobbing()
     {
+        
         if (playerController.state == Controller.MovementState.walking || playerController.state == Controller.MovementState.sprinting)
         {
             //use sprint speed if sprinting
@@ -79,6 +90,7 @@ public class PlayerCam : MonoBehaviour
 
     private void HandleWallrunTilt()
     {
+
         if (playerController.wallrunning)
         {
             //find tilt direction
@@ -93,6 +105,11 @@ public class PlayerCam : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, currentTilt);
+    }
+
+    public void SetPlayerController(Controller controller)
+    {
+        playerController = controller;
     }
 
 }
