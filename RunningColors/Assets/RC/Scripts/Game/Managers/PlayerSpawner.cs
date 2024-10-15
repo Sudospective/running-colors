@@ -7,6 +7,7 @@ public class PlayerSpawn : MonoBehaviour
     public GameObject playerPrefab;
     public Transform spawnPoint;
     public ScreenFader screenFader;
+    public TMPro.TextMeshProUGUI paintUI;
 
 
     // Start is called before the first frame update
@@ -18,6 +19,15 @@ public class PlayerSpawn : MonoBehaviour
     public void SpawnPlayer()
     {
         GameObject player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+
+        GameManager.GetInstance().SetPlayer(player);
+
+        Controller playerController = player.GetComponent<Controller>();
+        if (playerController != null )
+        {
+            playerController.paintCurrent = FindObjectOfType<TMPro.TextMeshProUGUI>();
+        }
+
 
         PlayerCam playerCam = Camera.main.GetComponent<PlayerCam>();
         if (playerCam != null)
