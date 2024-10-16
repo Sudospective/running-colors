@@ -28,14 +28,9 @@ public class ButtonFunctions : MonoBehaviour
         PauseMenuManager.Instance.OnBackClick();
     }
 
-    public void StartGame()
-    {
-
-    }
-
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void Quit()

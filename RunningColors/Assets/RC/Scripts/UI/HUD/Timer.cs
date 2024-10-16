@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
 
     bool timerActive;
 
-    float currentTime;
+    public float currentTime { get; private set; }
 
     void Awake()
     {
