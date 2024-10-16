@@ -12,17 +12,17 @@ public class MainMenu : MonoBehaviour
 
     [Header("Scenes to Load")]
 
-    [Tooltip("Name of the scene containing persistant objects")]
-    [SerializeField] string persistantGameplay = "PersistantGameplay";
+    //[Tooltip("Name of the scene containing persistant objects")]
+    //[SerializeField] string persistantGameplay = "PersistantGameplay";
 
     [Tooltip("Name of the first level to load")]
     [SerializeField] string levelScene = "Level1";
 
     [Header("Loading Bar")]
-    
+
     [Tooltip("Parent object used to toggle the loading bar activation")]
     [SerializeField] GameObject loadingBarParent;
-    
+
     [Tooltip("Image used to fill the loading bar")]
     [SerializeField] Image loadingBarFill;
 
@@ -38,8 +38,8 @@ public class MainMenu : MonoBehaviour
         HideMenu();
         ShowLoadingBar();
 
-        scenesToLoad.Add(SceneManager.LoadSceneAsync(persistantGameplay));
-        scenesToLoad.Add(SceneManager.LoadSceneAsync(levelScene, LoadSceneMode.Additive));
+        //scenesToLoad.Add(SceneManager.LoadSceneAsync(persistantGameplay));
+        scenesToLoad.Add(SceneManager.LoadSceneAsync(levelScene));
 
         StartCoroutine(LoadingBarProgress());
     }
