@@ -114,6 +114,7 @@ MonoBehaviour:
   sprintSpeed: 10
   slideSpeed: 30
   wallrunSpeed: 8.5
+  climbSpeed: 0
   speedIncreaseMultiplier: 2
   slopeIncreaseMultiplier: 3
   groundDrag: 4
@@ -122,13 +123,14 @@ MonoBehaviour:
   airMultiplier: 0.4
   crouchSpeed: 3.5
   crouchYScale: 0.5
+  climbingScript: {fileID: 3537497628015831834}
   jumpKey: 32
   sprintKey: 304
   crouchKey: 306
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   isGrounded: 0
   maxSlopeAngle: 40
   orientation: {fileID: 2190329491179040338}
@@ -138,7 +140,9 @@ MonoBehaviour:
   maxPaint: 999
   state: 0
   sliding: 0
+  crouching: 0
   wallrunning: 0
+  climbing: 0
 --- !u!114 &6725799906040182387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,21 +175,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   wallRunForce: 200
   wallJumpUpForce: 12
   wallJumpSideForce: 7
   wallClimbSpeed: 3
-  maxWallRunTime: 0.7
+  maxWallRunTime: 1
   jumpKey: 32
-  upwardsRunkey: 304
-  downwardsRunkey: 306
+  upwardsRunKey: 304
+  downwardsRunKey: 306
   wallCheckDistance: 0.7
   minJumpHeight: 2
-  exitWallTime: 0.2
+  useGravity: 0
+  gravityCounterForce: 0
   orientation: {fileID: 2190329491179040338}
 --- !u!114 &3537497628015831834
 MonoBehaviour:
@@ -203,13 +208,20 @@ MonoBehaviour:
   rb: {fileID: 4814322531460321687}
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 192
   ct: {fileID: 8440426233252390806}
   climbSpeed: 10
   maxClimbTime: 0.75
+  climbJumpUpForce: 14
+  climbJumpBackForce: 12
+  jumpKey: 32
+  climbJumps: 1
   detectionLength: 0.7
   sphereCastRadius: 0.25
   maxWallLookAngle: 30
+  minWallNormalAngleChange: 5
+  exitingWall: 0
+  exitWallTime: 0.1
 --- !u!114 &4761538711672929105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08e2f996ddc2774f85a4c8abeac3829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
   screenFader: {fileID: 0}
   fallThreshold: -5
 --- !u!1 &1926594232707193225

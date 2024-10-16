@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour
     public float sprintSpeed;
     public float slideSpeed;
     public float wallrunSpeed;
+    public float climbSpeed;
 
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
@@ -29,6 +30,9 @@ public class Controller : MonoBehaviour
     public float crouchSpeed;
     public float crouchYScale;
     private float startYScale;
+
+    [Header("References")]
+    public Climbing climbingScript;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -69,13 +73,16 @@ public class Controller : MonoBehaviour
         walking,
         sprinting,
         wallrunning,
+        climbing,
         crouching,
         sliding,
         air
     }
 
     public bool sliding;
+    public bool crouching;
     public bool wallrunning;
+    public bool climbing;
 
     private Collider paintSurface;
 
@@ -185,12 +192,6 @@ public class Controller : MonoBehaviour
 
     private void UpdatePaintUI()
     {
-        if(paintCurrent == null)
-        {
-            Debug.Log("Paint UI (TextMeshPro) not assigned in controller");
-            return;
-        }
-        
         paintCurrent.text = "Paint: " + currentPaint.ToString();
 
         if (currentPaint <= 0)
@@ -202,14 +203,19 @@ public class Controller : MonoBehaviour
 
     private void StateHandler()
     {
+        if(climbing)
+        {
+            state = MovementState.climbing;
+            desiredMoveSpeed = climbSpeed;
+        }
 
-        if(wallrunning)
+       else if(wallrunning)
         {
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallrunSpeed;
         }
 
-        if(sliding)
+       else  if(sliding)
         {
             state = MovementState.sliding;
 
