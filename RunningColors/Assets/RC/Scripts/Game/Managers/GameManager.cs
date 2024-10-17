@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 
     static private GameManager instance;
 
-    public GameObject player;
+    public GameObject player { get; private set; }
     public Camera mainCamera;
     public GameObject paintGlob;
     [Tooltip("The size of a glob of paint (move to paintbrush later)")]
