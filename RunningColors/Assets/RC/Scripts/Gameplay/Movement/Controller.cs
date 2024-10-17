@@ -192,7 +192,7 @@ public class Controller : MonoBehaviour
 
     private void UpdatePaintUI()
     {
-        paintCurrent.text = "Paint: " + currentPaint.ToString();
+        //paintCurrent.text = "Paint: " + currentPaint.ToString();
 
         if (currentPaint <= 0)
         {
