@@ -19,7 +19,6 @@ public class FallDetection : MonoBehaviour
         if(playerTransform.position.y < fallThreshold)
         {
             screenFader.FadeToBlack();
-
         }
     }
 }
