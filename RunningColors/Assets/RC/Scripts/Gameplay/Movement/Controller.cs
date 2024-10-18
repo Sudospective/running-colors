@@ -293,6 +293,8 @@ public class Controller : MonoBehaviour
 
     private void MovePlayer()
     {
+        if (climbingScript.exitingWall) return;
+
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         if (OnSlope() && !exitSlope)

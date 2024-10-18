@@ -33,7 +33,11 @@ public class WallRunning : MonoBehaviour
     private bool wallLeft;
     private bool wallRight;
 
- 
+    [Header("Exit")]
+    public bool exitingWall;
+    public float exitWallTime;
+    private float exitWallTimer;
+
     [Header("Gravity")]
     public bool useGravity;
     public float gravityCounterForce;
@@ -81,17 +85,39 @@ public class WallRunning : MonoBehaviour
         downwardsRunning = Input.GetKey(downwardsRunKey);
 
         // State 1 - Wallrunning
-        if ((wallLeft || wallRight) && verticalInput > 0 && AboveGround())
+        if ((wallLeft || wallRight) && verticalInput > 0 && AboveGround() && !exitingWall)
         {
             if (!ct.wallrunning)
                 StartWallRun();
+
+            // wallrun timer
+            if (wallRunTimer > 0)
+                wallRunTimer -= Time.deltaTime;
+
+            if (wallRunTimer <= 0 && ct.wallrunning)
+            {
+                exitingWall = true;
+                exitWallTimer = exitWallTime;
+            }
 
             // wall jump
             if (Input.GetKeyDown(jumpKey)) WallJump();
         }
 
+        // State 2 - Exiting
+        else if (exitingWall)
+        {
+            if (ct.wallrunning)
+                StopWallRun();
 
-        // State 2 - None
+            if (exitWallTimer > 0)
+                exitWallTimer -= Time.deltaTime;
+
+            if (exitWallTimer <= 0)
+                exitingWall = false;
+        }
+
+        // State 3 - None
         else
         {
             if (ct.wallrunning)
@@ -140,7 +166,8 @@ public class WallRunning : MonoBehaviour
 
     private void WallJump()
     {
-     
+        exitingWall = true;
+        exitWallTimer = exitWallTime;
 
         Vector3 wallNormal = wallRight ? rightWallhit.normal : leftWallhit.normal;
 

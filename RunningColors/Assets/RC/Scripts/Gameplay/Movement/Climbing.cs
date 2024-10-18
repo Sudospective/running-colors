@@ -49,15 +49,13 @@ public class Climbing : MonoBehaviour
         WallCheck();
         StateMachine();
 
-        if (climbing && !exitingWall)
-        {
-            ClimbingMovement();
-        }
+        if (climbing && !exitingWall) ClimbingMovement();
+        
 
     }
     private void StateMachine()
     {
-        if(wallFront && Input.GetKey(KeyCode.W) && wallLookAngle < maxWallLookAngle)
+        if(wallFront && Input.GetKey(KeyCode.W) && wallLookAngle < maxWallLookAngle && !exitingWall)
         {
             if(!climbing && climbTimer > 0) StartClimbing();
             if(climbTimer > 0) climbTimer -= Time.deltaTime;
