@@ -92,6 +92,7 @@ public class Controller : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         canShoot = true;
+        interactivePaintType = PaintType.None;
 
         startYScale = transform.localScale.y;
 
@@ -123,6 +124,7 @@ public class Controller : MonoBehaviour
             return;
         }
 
+        PaintType originalPaintType = interactivePaintType;
         IPaint paint = other.GetComponent<IPaint>();
         if (paint != null)
         {
@@ -132,6 +134,10 @@ public class Controller : MonoBehaviour
         else
         {
             interactivePaintType = PaintType.None;
+        }
+        if (originalPaintType != interactivePaintType)
+        {
+            ReactToPaint(interactivePaintType);
         }
     }
 
@@ -143,6 +149,25 @@ public class Controller : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+    }
+
+    private void ReactToPaint(PaintType paintType)
+    {
+        switch (paintType)
+        {
+            case PaintType.Speed:
+                // Increase player top speed
+                break;
+            case PaintType.Jump:
+                // Increase player jump height
+                break;
+            case PaintType.Stick:
+                // Decrease player top speed and jump height
+                break;
+            case PaintType.None:
+                // Reset top speed and jump height
+                break;
+        }
     }
 
     public void UpdatePaintStatus()
