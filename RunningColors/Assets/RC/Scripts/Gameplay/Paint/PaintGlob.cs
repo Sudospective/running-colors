@@ -30,7 +30,7 @@ public class PaintGlob : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -41,6 +41,14 @@ public class PaintGlob : MonoBehaviour
         {
             Vector3 pos = other.ClosestPoint(transform.position);
             paint.PaintSurface(this, pos);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            return;
         }
         Destroy(gameObject);
     }
