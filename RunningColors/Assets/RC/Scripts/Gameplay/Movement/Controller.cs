@@ -157,15 +157,19 @@ public class Controller : MonoBehaviour
         {
             case PaintType.Speed:
                 // Increase player top speed
+                Debug.Log("Speed");
                 break;
             case PaintType.Jump:
                 // Increase player jump height
+                Debug.Log("Jump");
                 break;
             case PaintType.Stick:
                 // Decrease player top speed and jump height
+                Debug.Log("Stick");
                 break;
             case PaintType.None:
                 // Reset top speed and jump height
+                Debug.Log("None");
                 break;
         }
     }
