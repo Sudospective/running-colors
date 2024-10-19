@@ -84,8 +84,6 @@ public class Controller : MonoBehaviour
     public bool wallrunning;
     public bool climbing;
 
-    private Collider paintSurface;
-
     private void Start()
     {
         currentPaint = maxPaint;

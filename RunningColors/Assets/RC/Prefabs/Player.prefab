@@ -132,7 +132,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   isGrounded: 0
-  maxSlopeAngle: 40
+  maxSlopeAngle: 15
   orientation: {fileID: 2190329491179040338}
   shotPosition: {fileID: 9147696870230128657}
   shotCooldown: 1
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 2190329491179040338}
-  playerObject: {fileID: 9147696870230128657}
+  playerObject: {fileID: 1728269914176473448}
   maxSlideTime: 0.75
   slideForce: 300
   slideYScale: 0.5
@@ -189,6 +189,8 @@ MonoBehaviour:
   downwardsRunKey: 306
   wallCheckDistance: 0.7
   minJumpHeight: 2
+  exitingWall: 0
+  exitWallTime: 0
   useGravity: 0
   gravityCounterForce: 0
   orientation: {fileID: 2190329491179040338}
