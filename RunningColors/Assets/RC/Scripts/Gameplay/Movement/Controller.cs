@@ -143,7 +143,12 @@ public class Controller : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        PaintType originalPaintType = interactivePaintType;
         interactivePaintType = PaintType.None;
+        if (originalPaintType != interactivePaintType)
+        {
+            ReactToPaint(interactivePaintType);
+        }
     }
 
     private void FixedUpdate()
