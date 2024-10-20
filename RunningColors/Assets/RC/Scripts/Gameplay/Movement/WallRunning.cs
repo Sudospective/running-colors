@@ -46,11 +46,12 @@ public class WallRunning : MonoBehaviour
     public Transform orientation;
     private Controller ct;
     private Rigidbody rb;
-
+    private LedgeGrabbing grab;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         ct = GetComponent<Controller>();
+        grab = GetComponent<LedgeGrabbing>();
     }
 
     private void Update()
@@ -166,6 +167,8 @@ public class WallRunning : MonoBehaviour
 
     private void WallJump()
     {
+        if (grab.holding || grab.exitingLedge) return;
+
         exitingWall = true;
         exitWallTimer = exitWallTime;
 

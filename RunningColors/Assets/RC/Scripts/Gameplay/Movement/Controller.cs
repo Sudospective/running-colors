@@ -70,6 +70,8 @@ public class Controller : MonoBehaviour
     public MovementState state;
     public enum MovementState
     {
+        freeze,
+        unlimited,
         walking,
         sprinting,
         wallrunning,
@@ -83,6 +85,11 @@ public class Controller : MonoBehaviour
     public bool crouching;
     public bool wallrunning;
     public bool climbing;
+
+    public bool freeze;
+    public bool unlimited;
+
+    public bool restricted;
 
     private Collider paintSurface;
 
@@ -234,10 +241,22 @@ public class Controller : MonoBehaviour
         }
     }
 
-
+    bool keepMomentum;
     private void StateHandler()
     {
-        if(climbing)
+        if (freeze)
+        {
+            state = MovementState.freeze;
+            rb.velocity = Vector3.zero;
+            desiredMoveSpeed = 0;
+        }
+        else if (unlimited)
+        {
+            state = MovementState.unlimited;
+            desiredMoveSpeed = 999f;
+            return;
+        }
+        else if(climbing)
         {
             state = MovementState.climbing;
             desiredMoveSpeed = climbSpeed;
@@ -256,6 +275,7 @@ public class Controller : MonoBehaviour
             if(OnSlope() && rb.velocity.y < 0.1f)
             {
                 desiredMoveSpeed = slideSpeed;
+                keepMomentum = true;
             }
 
             else
@@ -297,7 +317,25 @@ public class Controller : MonoBehaviour
             moveSpeed = desiredMoveSpeed;
         }
 
+        bool moveSpeedChange = desiredMoveSpeed != lastDesiredMoveSpeed;
+
+        if (moveSpeedChange)
+        {
+            if(keepMomentum)
+            {
+                StopAllCoroutines();
+                StartCoroutine(SmoothlyLerpMoveSpeed());
+            }
+            else
+            {
+                moveSpeed = desiredMoveSpeed;
+            }
+        }
+
+
         lastDesiredMoveSpeed = desiredMoveSpeed;
+
+        if(Mathf.Abs(desiredMoveSpeed - moveSpeed) < 0.1) keepMomentum = false;
     }
 
     private IEnumerator SmoothlyLerpMoveSpeed()
@@ -327,7 +365,7 @@ public class Controller : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (climbingScript.exitingWall) return;
+        if(restricted) return;
 
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
