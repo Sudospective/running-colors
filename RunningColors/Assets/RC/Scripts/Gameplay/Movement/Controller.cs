@@ -13,8 +13,14 @@ public class Controller : MonoBehaviour
     public float wallrunSpeed;
     public float climbSpeed;
 
+    public float dashSpeed;
+    public float dashSpeedChange;
+
+    public float maxYSpeed; 
+
     private float desiredMoveSpeed;
     private float lastDesiredMoveSpeed;
+    private MovementState lastState;
 
     public float speedIncreaseMultiplier;
     public float slopeIncreaseMultiplier;
@@ -77,12 +83,14 @@ public class Controller : MonoBehaviour
         wallrunning,
         climbing,
         crouching,
+        dashing,
         sliding,
         air
     }
 
     public bool sliding;
     public bool crouching;
+    public bool dashing;
     public bool wallrunning;
     public bool climbing;
 
@@ -114,7 +122,7 @@ public class Controller : MonoBehaviour
         SpeedControl();
         StateHandler();
 
-        if (isGrounded)
+        if (state == MovementState.walking || state == MovementState.sprinting || state == MovementState.crouching)
         {
             rb.drag = groundDrag;
         }
@@ -263,13 +271,13 @@ public class Controller : MonoBehaviour
         }
 
        else if(wallrunning)
-        {
+       {
             state = MovementState.wallrunning;
             desiredMoveSpeed = wallrunSpeed;
-        }
+       }
 
        else  if(sliding)
-        {
+       {
             state = MovementState.sliding;
 
             if(OnSlope() && rb.velocity.y < 0.1f)
@@ -282,30 +290,37 @@ public class Controller : MonoBehaviour
             {
                 desiredMoveSpeed = sprintSpeed;
             }
-        }
-
+       }
+       else if (dashing)
+       {
+            state = MovementState.dashing;
+            desiredMoveSpeed = dashSpeed;
+            speedChangeFactor = dashSpeedChange;
+       }
        else if (Input.GetKey(crouchKey))
-        {
+       {
             state = MovementState.crouching;
             desiredMoveSpeed = crouchSpeed;
-        }
-
-        else if (isGrounded && Input.GetKey(sprintKey) && IsMoving())
-        {
+       }
+       else if (isGrounded && Input.GetKey(sprintKey) && IsMoving())
+       {
             state = MovementState.sprinting;
             desiredMoveSpeed = sprintSpeed;
-        }
-
-        else if (isGrounded && IsMoving())
-        {
+       }
+       else if (isGrounded && IsMoving())
+       {
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
-        }
-
-        else
-        {
+       }
+       else
+       {
             state = MovementState.air;
-        }
+
+            if (desiredMoveSpeed < sprintSpeed)
+                desiredMoveSpeed = walkSpeed;
+            else
+                desiredMoveSpeed = sprintSpeed;
+       }
 
         if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
         {
@@ -332,8 +347,26 @@ public class Controller : MonoBehaviour
             }
         }
 
+        bool desieredMoveSpeedChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+        if (lastState == MovementState.dashing) keepMomentum = true;
+
+        if(desieredMoveSpeedChanged)
+        {
+            if(keepMomentum)
+            {
+                StopAllCoroutines();
+                StartCoroutine(SmoothlyLerpDashSpeed());
+
+            }
+            else
+            {
+                StopAllCoroutines();
+                moveSpeed = desiredMoveSpeed;
+            }
+        }
 
         lastDesiredMoveSpeed = desiredMoveSpeed;
+        lastState = state;
 
         if(Mathf.Abs(desiredMoveSpeed - moveSpeed) < 0.1) keepMomentum = false;
     }
@@ -363,9 +396,33 @@ public class Controller : MonoBehaviour
         moveSpeed = desiredMoveSpeed;
     }
 
+    private float speedChangeFactor;
+    private IEnumerator SmoothlyLerpDashSpeed()
+    {
+        float time = 0;
+        float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
+        float startValue = moveSpeed;
+
+        float boostFactor = speedChangeFactor;
+
+        while (time < difference)
+        {
+            moveSpeed = Mathf.Lerp(startValue, desiredMoveSpeed, time / difference);
+
+            time += Time.deltaTime * boostFactor;
+
+            yield return null;
+        }
+        moveSpeed = desiredMoveSpeed;
+        speedChangeFactor = 1f;
+        keepMomentum = false;
+    }
+
     private void MovePlayer()
     {
         if(restricted) return;
+
+        if (state == MovementState.dashing) return;
 
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
@@ -415,6 +472,10 @@ public class Controller : MonoBehaviour
             }
         }
 
+        if(maxYSpeed != 0 && rb.velocity.y > maxYSpeed)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, maxYSpeed, rb.velocity.z);
+        }
 
     }
 
