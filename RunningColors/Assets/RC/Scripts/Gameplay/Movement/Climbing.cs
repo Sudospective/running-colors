@@ -121,9 +121,11 @@ public class Climbing : MonoBehaviour
         exitingWall = true;
         exitWallTimer = exitWallTime;
 
+        rb.velocity = Vector3.zero;
+
         Vector3 forceToApply = transform.up * climbJumpUpForce + frontWallHit.normal * climbJumpBackForce;
 
-        rb.velocity = new Vector3 (rb.velocity.x, 0f, rb.position.z);
+       
         rb.AddForce(forceToApply, ForceMode.Impulse);
 
         climbJumpsLeft--;

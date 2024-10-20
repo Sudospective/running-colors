@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 6725799906040182387}
   - component: {fileID: -3604570529390434670}
   - component: {fileID: 3537497628015831834}
-  - component: {fileID: -930497469645173842}
   - component: {fileID: 4761538711672929105}
   m_Layer: 0
   m_Name: Player
@@ -144,9 +143,6 @@ MonoBehaviour:
   crouching: 0
   wallrunning: 0
   climbing: 0
-  freeze: 0
-  unlimited: 0
-  restricted: 0
 --- !u!114 &6725799906040182387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,11 +210,11 @@ MonoBehaviour:
   rb: {fileID: 4814322531460321687}
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   ct: {fileID: 8440426233252390806}
   climbSpeed: 10
   maxClimbTime: 0.75
-  climbJumpUpForce: 12
+  climbJumpUpForce: 14
   climbJumpBackForce: 12
   jumpKey: 32
   climbJumps: 1
@@ -227,32 +223,7 @@ MonoBehaviour:
   maxWallLookAngle: 30
   minWallNormalAngleChange: 5
   exitingWall: 0
-  exitWallTime: 0.2
---- !u!114 &-930497469645173842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640975838099146118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba7d3e36fcb1d041a643ad6ba90dbcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ct: {fileID: 8440426233252390806}
-  orientation: {fileID: 2190329491179040338}
-  cam: {fileID: 9147696870230128657}
-  rb: {fileID: 4814322531460321687}
-  moveToLedgeSpeed: 12
-  maxLedgeGrabDistance: 2
-  minTimeOnLedge: 0.5
-  holding: 0
-  ledgeDetectionLength: 3
-  ledgeSphereCastRadius: 0.5
-  whatIsLedge:
-    serializedVersion: 2
-    m_Bits: 1024
+  exitWallTime: 0.1
 --- !u!114 &4761538711672929105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +282,7 @@ GameObject:
   - component: {fileID: 3900203209188764329}
   - component: {fileID: 3450460086874770557}
   - component: {fileID: 874545862155986627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerObj
   m_TagString: Player
   m_Icon: {fileID: 0}
