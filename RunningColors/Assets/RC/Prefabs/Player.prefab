@@ -133,7 +133,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   isGrounded: 0
-  maxSlopeAngle: 40
+  maxSlopeAngle: 15
   orientation: {fileID: 2190329491179040338}
   shotPosition: {fileID: 9147696870230128657}
   shotCooldown: 1
