@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
+    public void CloseMenu()
+    {
+        PauseMenuManager.Instance.StateUnpause();
+    }
+
     public void Resume()
     {
         PauseMenuManager.Instance.StateUnpause();

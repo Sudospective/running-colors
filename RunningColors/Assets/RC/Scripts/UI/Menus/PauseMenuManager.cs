@@ -58,7 +58,8 @@ public class PauseMenuManager : MonoBehaviour
         isPaused = !isPaused;
 
         Time.timeScale = 0;
-        Timer.Instance.StopTimer();
+        if (Timer.Instance != null)
+            Timer.Instance.StopTimer();
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -69,7 +70,8 @@ public class PauseMenuManager : MonoBehaviour
         isPaused = !isPaused;
 
         Time.timeScale = 1;
-        Timer.Instance.StartTimer();
+        if (Timer.Instance != null)
+            Timer.Instance.StartTimer();
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
