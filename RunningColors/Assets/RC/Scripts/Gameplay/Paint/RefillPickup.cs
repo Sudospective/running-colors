@@ -4,6 +4,7 @@ public class RefillPickup : MonoBehaviour
 {
     [Tooltip("Scriptable object with notification message for refill pickup")]
     [SerializeField] NotificationScriptable notification;
+    [SerializeField] PaintStats paint;
 
     private void Update()
     {
