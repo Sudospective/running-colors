@@ -50,6 +50,10 @@ public class Controller : MonoBehaviour
     public LayerMask whatIsGround;
     public bool isGrounded;
 
+    [Header("Wall Check")]
+    public LayerMask whatIsWall;
+    public bool isWallrunning;
+
     [Header("Slope Handling")]
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
@@ -130,6 +134,8 @@ public class Controller : MonoBehaviour
         {
             rb.drag = 0;
         }
+
+        CheckWallrunning();
     }
 
     private void OnTriggerStay(Collider other)
@@ -296,31 +302,39 @@ public class Controller : MonoBehaviour
             state = MovementState.dashing;
             desiredMoveSpeed = dashSpeed;
             speedChangeFactor = dashSpeedChange;
+            GetComponent<PlayerAudio>().PlayDashSound();
        }
-       else if (Input.GetKey(crouchKey))
-       {
-            state = MovementState.crouching;
-            desiredMoveSpeed = crouchSpeed;
-       }
-       else if (isGrounded && Input.GetKey(sprintKey) && IsMoving())
-       {
-            state = MovementState.sprinting;
-            desiredMoveSpeed = sprintSpeed;
-       }
-       else if (isGrounded && IsMoving())
-       {
-            state = MovementState.walking;
-            desiredMoveSpeed = walkSpeed;
-       }
-       else
-       {
-            state = MovementState.air;
-
-            if (desiredMoveSpeed < sprintSpeed)
-                desiredMoveSpeed = walkSpeed;
-            else
+        else
+        {
+            if(lastState == MovementState.dashing)
+            {
+                GetComponent<PlayerAudio>().ResetDashSound();
+            }
+            if (Input.GetKey(crouchKey))
+            {
+                state = MovementState.crouching;
+                desiredMoveSpeed = crouchSpeed;
+            }
+            else if (isGrounded && Input.GetKey(sprintKey) && IsMoving())
+            {
+                state = MovementState.sprinting;
                 desiredMoveSpeed = sprintSpeed;
-       }
+            }
+            else if (isGrounded && IsMoving())
+            {
+                state = MovementState.walking;
+                desiredMoveSpeed = walkSpeed;
+            }
+            else
+            {
+                state = MovementState.air;
+
+                if (desiredMoveSpeed < sprintSpeed)
+                    desiredMoveSpeed = walkSpeed;
+                else
+                    desiredMoveSpeed = sprintSpeed;
+            }
+        }
 
         if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
         {
@@ -396,7 +410,7 @@ public class Controller : MonoBehaviour
         moveSpeed = desiredMoveSpeed;
     }
 
-    private float speedChangeFactor;
+    public float speedChangeFactor;
     private IEnumerator SmoothlyLerpDashSpeed()
     {
         float time = 0;
@@ -486,6 +500,8 @@ public class Controller : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
+        GetComponent<PlayerAudio>().PlayJumpSound();
     }
 
     private void ResetJump()
@@ -495,18 +511,30 @@ public class Controller : MonoBehaviour
         exitSlope = false;
     }
 
-    private bool IsMoving()
+    public bool IsMoving()
     {
         return horizontalInput != 0 || verticalInput != 0;
     }
 
     public bool IsWallLeft()
     {
-        return Physics.Raycast(transform.position, -orientation.right, 1f, whatIsGround);
+        return Physics.Raycast(transform.position, -orientation.right, 1f, whatIsWall);
     }
     public bool IsWallRight()
     {
-        return Physics.Raycast(transform.position, orientation.right, 1f, whatIsGround);
+        return Physics.Raycast(transform.position, orientation.right, 1f, whatIsWall);
+    }
+
+    private void CheckWallrunning()
+    {
+        if(IsWallLeft() || IsWallRight() && !isGrounded && IsMoving())
+        {
+            isWallrunning = true;
+        }
+        else
+        {
+            isWallrunning = false;
+        }
     }
 
     public bool OnSlope()

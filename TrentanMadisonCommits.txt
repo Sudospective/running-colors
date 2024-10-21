@@ -1,0 +1,41 @@
+commit 3596a19b5f69cd1d97327ff27e5ba9869b73c570
+Author: TheTinKan <trentanm71@gmail.com>
+Date:   Tue Oct 15 21:40:03 2024 -0400
+
+    Level 3 work
+
+commit f101739761d24b21c268666ae05e7dff71b6ffab
+Author: TheTinKan <trentanm71@gmail.com>
+Date:   Tue Oct 15 17:38:48 2024 -0400
+
+    Fixed bugs caused by controller workaround.
+
+commit d42403554fcb1436f4dddc053eb7adc9363738d0
+Author: TheTinKan <trentanm71@gmail.com>
+Date:   Tue Oct 15 16:44:58 2024 -0400
+
+    Created an initial spawn for the player, created workaround to still connect camera to the player.
+
+commit 0688df526a34c3568a925b774ef8b89c81bc758d
+Author: TheTinKan <trentanm71@gmail.com>
+Date:   Mon Oct 14 17:22:08 2024 -0400
+
+    Player screen will now fade to black if they fall below the map, still needs checkpoint system added.
+
+commit b6aca766edf1a66bf712cabb2cb45dcf4be43421
+Author: TheTinKan <trentanm71@gmail.com>
+Date:   Mon Oct 14 14:54:38 2024 -0400
+
+    Camera now bobs when walking/running, as well as tilt when wallrunning.
+
+commit 970cb176bc4c95a7846e41a1b1965f3bcea09acd
+Author: TheTinKan <trentanm71@gmail.com>
+Date:   Sat Oct 12 18:02:45 2024 -0400
+
+    Completed a cleaning robot, will patrol on set path.
+
+commit 8cff3c1c366a85cb8d8292838e7e362896f38714
+Author: TheTinKan <trentanm71@gmail.com>
+Date:   Thu Oct 10 17:14:04 2024 -0400
+
+    Completed fan trap, tagged the player, and added a collider to the player.
