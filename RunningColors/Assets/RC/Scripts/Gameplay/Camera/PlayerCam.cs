@@ -16,11 +16,16 @@ public class PlayerCam : MonoBehaviour
     public float wallrunTiltAngle = 15f;
     public float tiltSpeed = 5f;
 
+    public float defaultFOV = 60f;
+    public float dashFOV = 80f;
+    public float fovTransitionSpeed = 5f;
+
     private float defaultYPos;
     private float bobTimer;
     private float currentTilt = 0f;
 
     private Controller playerController;
+    private Camera cam;
 
     float xRotation;
     float yRotation;
@@ -31,7 +36,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
 
         defaultYPos = transform.localPosition.y;
-
+        cam = GetComponent<Camera>();
         playerController = FindObjectOfType<Controller>();
     }
 
@@ -50,6 +55,19 @@ public class PlayerCam : MonoBehaviour
         HandleCameraRotation();
         HandleCameraBobbing();
         HandleWallrunTilt();
+        HandleFOVChanges();
+    }
+
+    private void HandleFOVChanges()
+    {
+        if (playerController.state == Controller.MovementState.dashing)
+        {
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, dashFOV, Time.deltaTime * fovTransitionSpeed);
+        }
+        else
+        {
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, defaultFOV, Time.deltaTime * fovTransitionSpeed);
+        }
     }
 
     private void HandleCameraRotation()
