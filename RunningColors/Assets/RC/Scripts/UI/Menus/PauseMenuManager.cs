@@ -25,7 +25,7 @@ public class PauseMenuManager : MonoBehaviour
 
     Stack<GameObject> openedMenus = new Stack<GameObject>();
 
-    bool isPaused;
+    public bool isPaused { get; private set; }
 
     private void Awake()
     {

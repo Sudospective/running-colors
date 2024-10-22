@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("This is the max amount of paint")]
     [Range(10, 200)] public int paintMax;
 
-    public float PaintCur {  get; set; }
+    public float paintCur {  get; set; }
 
     public static GameManager GetInstance() { return instance; }
 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Main Camera not found.");
         }
         
-        PaintCur = paintMax;
+        paintCur = paintMax;
     }
 
     public void SetPlayer(GameObject newPlayer)

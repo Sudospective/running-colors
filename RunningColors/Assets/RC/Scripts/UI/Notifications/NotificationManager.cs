@@ -2,23 +2,30 @@ using UnityEngine;
 
 public class NotificationManager : MonoBehaviour
 {
-    public static NotificationManager Instance;
+    [SerializeField] Canvas HUDCanvas;
 
-    [Tooltip("UI panel containing the CanvasGroup for displaying notifications")]
-    [SerializeField] RectTransform notificationPanel;
+    [SerializeField] NotificationToastEventPublisher _notificationPublisher;
 
-    void Awake()
+    GameObject _notificationInstance;
+
+    private void Start()
     {
-        Instance = this;
+        _notificationPublisher.OnToastNotification += OnToastNotification;
     }
 
-    public void ToastNotification(NotificationScriptable notification)
+    public void OnToastNotification(NotificationSO notification)
     {
-        NotificationToast toast = notificationPanel.GetComponent<NotificationToast>();
+        if (HUDCanvas != null)
+            _notificationInstance = Instantiate(notification.notificationPrefab, HUDCanvas.transform);
 
-        if (toast)
+        if (_notificationInstance != null)
         {
-            toast.Initialize(notification);
+            NotificationToast toast = _notificationInstance.GetComponent<NotificationToast>();
+
+            if (toast)
+            {
+                toast.Initialize(notification);
+            }
         }
     }
 }

@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530c1c07bc5479f47a15892debf98db0, type: 3}
-  m_Name: PaintRefillNotif
+  m_Script: {fileID: 11500000, guid: fc2122de5b14add46ba115b777bbd4c3, type: 3}
+  m_Name: LoadSceneEventPublisher
   m_EditorClassIdentifier: 
-  notificationMessage: Fresh Paint!
-  removeAfterExit: 1
-  disableAfterTimer: 1
-  disableTimer: 3

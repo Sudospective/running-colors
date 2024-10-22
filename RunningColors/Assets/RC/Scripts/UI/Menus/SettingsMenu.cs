@@ -7,8 +7,14 @@ public class SettingsMenu : MonoBehaviour
     [Tooltip("X sensitivity value text")]
     [SerializeField] TMP_Text SensXValueText;
 
+    [Tooltip("X sensitivity value shadow")]
+    [SerializeField] TMP_Text SensXValueShadow;
+
     [Tooltip("Y sensitivity value text")]
     [SerializeField] TMP_Text SensYValueText;
+
+    [Tooltip("Y sensitivity value shadow")]
+    [SerializeField] TMP_Text SensYValueShadow;
 
     [Tooltip("Slider component for look sensitivity on the x-axis")]
     [SerializeField] Slider lookSensXSlider;
@@ -35,7 +41,10 @@ public class SettingsMenu : MonoBehaviour
     void Update()
     {
         SensXValueText.text = ((int)lookSensXSlider.value).ToString();
+        SensXValueShadow.text = ((int)lookSensXSlider.value).ToString();
+
         SensYValueText.text = ((int)lookSensYSlider.value).ToString();
+        SensYValueShadow.text = ((int)lookSensYSlider.value).ToString();
     }
 
     void OnXSensitivityChanged(float newValue)

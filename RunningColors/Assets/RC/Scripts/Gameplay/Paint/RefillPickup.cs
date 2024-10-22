@@ -3,8 +3,9 @@ using UnityEngine;
 public class RefillPickup : MonoBehaviour
 {
     [Tooltip("Scriptable object with notification message for refill pickup")]
-    [SerializeField] NotificationScriptable notification;
-    [SerializeField] PaintStats paint;
+    [SerializeField] NotificationSO notification;
+
+    [SerializeField] NotificationToastEventPublisher _notificationPublisher;
 
     private void Update()
     {
@@ -14,9 +15,10 @@ public class RefillPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.GetInstance().PaintCur = GameManager.GetInstance().paintMax;
+            GameManager.GetInstance().paintCur = GameManager.GetInstance().paintMax;
 
-            NotificationManager.Instance.ToastNotification(notification);
+            if (notification != null)
+                _notificationPublisher.RaiseEvent(notification);
             
             Destroy(gameObject);
         }

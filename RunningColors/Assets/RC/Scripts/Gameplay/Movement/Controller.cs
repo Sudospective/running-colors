@@ -65,8 +65,6 @@ public class Controller : MonoBehaviour
     public Transform shotPosition;
     public float shotCooldown;
     public TMP_Text paintCurrent;
-    private int currentPaint;
-    public int maxPaint;
     PaintType interactivePaintType;
     bool canShoot;
 
@@ -107,7 +105,7 @@ public class Controller : MonoBehaviour
 
     private void Start()
     {
-        currentPaint = maxPaint;
+        GameManager.GetInstance().paintCur = GameManager.GetInstance().paintMax;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         canShoot = true;
@@ -122,7 +120,8 @@ public class Controller : MonoBehaviour
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        MyInput();
+        if (!PauseMenuManager.Instance.isPaused)
+            MyInput();
         SpeedControl();
         StateHandler();
 
@@ -217,7 +216,7 @@ public class Controller : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        if (Input.GetButton("Fire1") && canShoot && currentPaint > 0)
+        if (Input.GetButton("Fire1") && canShoot && GameManager.GetInstance().paintCur > 0)
         {
             StartCoroutine(ShootPaint());
         }
@@ -237,7 +236,7 @@ public class Controller : MonoBehaviour
 
     private IEnumerator ShootPaint()
     {
-        currentPaint--;
+        GameManager.GetInstance().paintCur--;
         UpdatePaintUI();
         Instantiate(GameManager.GetInstance().paintGlob, shotPosition.position, GameManager.GetInstance().mainCamera.transform.rotation);
         canShoot = false;
@@ -249,7 +248,7 @@ public class Controller : MonoBehaviour
     {
         //paintCurrent.text = "Paint: " + currentPaint.ToString();
 
-        if (currentPaint <= 0)
+        if (GameManager.GetInstance().paintCur <= 0)
         {
             canShoot = false;
         }

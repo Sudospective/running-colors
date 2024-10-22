@@ -4,43 +4,52 @@ using UnityEngine;
 
 public class NotificationToast : MonoBehaviour
 {
+    [Tooltip("Text content that will display the notification text")]
     [SerializeField] TMP_Text notificationText;
 
     [SerializeField] Animator notificationAnim;
 
-    NotificationScriptable notifScriptable;
+    NotificationSO notifScriptable;
 
-    bool initialized;
+    bool isInitialized;
 
-    public void Initialize(NotificationScriptable notification)
+    private void Update()
     {
-        notifScriptable = notification;
-        initialized = true;
+        if (isInitialized)
+        {
+            StartCoroutine(EnableNotification());           
+        }
     }
 
-    void Update()
+    public void Initialize(NotificationSO notification)
     {
-        if (initialized)
-        {
-            StartCoroutine(EnableNotification());
-        }
+        notifScriptable = notification;
+        isInitialized = true;
     }
 
     IEnumerator EnableNotification()
     {
-        notificationAnim.Play("NotificationFadeIn");
-        notificationText.text = notifScriptable.notificationMessage;
-
-        if (notifScriptable.disableAfterTimer)
+        if (notificationAnim != null && notificationText != null)
         {
-            yield return new WaitForSeconds(notifScriptable.disableTimer);
-            RemoveNotification();
+            notificationAnim.Play("NotificationFadeIn");
+            notificationText.text = notifScriptable.notificationMessage;
+
+            if (notifScriptable.disableAfterTimer)
+            {
+                yield return new WaitForSeconds(notifScriptable.disableTimer);
+                RemoveNotification();
+            }
+            else if (notifScriptable.removeByKey)
+            {
+                yield return new WaitUntil(() => Input.GetKeyDown(notifScriptable.removeKey));
+                RemoveNotification();
+            }
         }
     }
 
     void RemoveNotification()
     {
         notificationAnim.Play("NotificationFadeOut");
-        initialized = false;
+        isInitialized = false;
     }
 }
