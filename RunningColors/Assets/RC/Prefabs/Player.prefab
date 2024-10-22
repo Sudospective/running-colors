@@ -148,6 +148,9 @@ MonoBehaviour:
   isWallrunning: 0
   maxSlopeAngle: 30
   orientation: {fileID: 2190329491179040338}
+  availablePaints:
+  - {fileID: 11400000, guid: a1c6e80d0005b7e46903bfd0283aab09, type: 2}
+  - {fileID: 11400000, guid: 67c57f755b8cc834092a146bbcce3506, type: 2}
   shotPosition: {fileID: 9147696870230128657}
   shotCooldown: 1
   paintCurrent: {fileID: 0}
@@ -772,6 +775,10 @@ PrefabInstance:
     - target: {fileID: 5402072694242269851, guid: 1504e0d049b215e4ca08554643a1e381, type: 3}
       propertyPath: m_Name
       value: DropShadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402072694242269851, guid: 1504e0d049b215e4ca08554643a1e381, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6229985713841428924, guid: 1504e0d049b215e4ca08554643a1e381, type: 3}
       propertyPath: m_LocalPosition.x

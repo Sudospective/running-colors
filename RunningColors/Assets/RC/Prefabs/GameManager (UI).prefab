@@ -50,9 +50,8 @@ MonoBehaviour:
   paintGlob: {fileID: 3209364192442377463, guid: 914d03b96a07deb42a087b2d9eb243c5, type: 3}
   globSize: 64
   paintResolution: 3
-  speedPaintMult: 0
-  jumpPaintMult: 0
-  stickPaintMult: 0
+  speedPaintMult: 2
+  jumpPaintMult: 2
   paintMax: 20
 --- !u!1001 &1458080753726464418
 PrefabInstance:

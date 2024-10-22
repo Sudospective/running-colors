@@ -13,11 +13,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("The resolution of the paintable surfaces")]
     [Range(0, 3)] public int paintResolution;
     [Tooltip("The multiplier of the speed paint")]
-    [Range(2, 5)] public float speedPaintMult;
+    [Range(2.0f, 5.0f)] public float speedPaintMult;
     [Tooltip("The multiplier of the jump paint")]
-    [Range(2, 5)] public float jumpPaintMult;
-    [Tooltip("The multiplier of the stick paint")]
-    [Range(2, 5)] public float stickPaintMult;
+    [Range(2.0f, 5.0f)] public float jumpPaintMult;
 
     [Tooltip("This is the max amount of paint")]
     [Range(10, 200)] public int paintMax;

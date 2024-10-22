@@ -62,11 +62,14 @@ public class Controller : MonoBehaviour
     public Transform orientation;
 
     [Header("Paint")]
+    public PaintStats[] availablePaints;
     public Transform shotPosition;
     public float shotCooldown;
     public TMP_Text paintCurrent;
     PaintType interactivePaintType;
     bool canShoot;
+
+    private int currentlyUsedPaintIndex;
 
     float horizontalInput;
     float verticalInput;
@@ -103,6 +106,9 @@ public class Controller : MonoBehaviour
 
     private Collider paintSurface;
 
+    private float paintSpeedMult;
+    private float paintJumpMult;
+
     private void Start()
     {
         GameManager.GetInstance().paintCur = GameManager.GetInstance().paintMax;
@@ -113,6 +119,10 @@ public class Controller : MonoBehaviour
 
         startYScale = transform.localScale.y;
 
+        paintSpeedMult = 1.0f;
+        paintJumpMult = 1.0f;
+
+        currentlyUsedPaintIndex = 0;
     }
 
     private void Update()
@@ -183,18 +193,25 @@ public class Controller : MonoBehaviour
             case PaintType.Speed:
                 // Increase player top speed
                 Debug.Log("Speed");
+                paintSpeedMult = GameManager.GetInstance().speedPaintMult;
+                Debug.Log(paintSpeedMult);
                 break;
             case PaintType.Jump:
                 // Increase player jump height
                 Debug.Log("Jump");
+                paintJumpMult = GameManager.GetInstance().jumpPaintMult;
                 break;
             case PaintType.Stick:
                 // Decrease player top speed and jump height
                 Debug.Log("Stick");
+                paintSpeedMult = 1.0f / GameManager.GetInstance().speedPaintMult;
+                paintJumpMult = 1.0f / GameManager.GetInstance().jumpPaintMult;
                 break;
             case PaintType.None:
                 // Reset top speed and jump height
                 Debug.Log("None");
+                paintSpeedMult = 1.0f;
+                paintJumpMult = 1.0f;
                 break;
         }
     }
@@ -232,13 +249,23 @@ public class Controller : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
 
         }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            currentlyUsedPaintIndex++;
+            while (currentlyUsedPaintIndex >= availablePaints.Length)
+            {
+                currentlyUsedPaintIndex -= availablePaints.Length;
+            }
+        }
     }
 
     private IEnumerator ShootPaint()
     {
         GameManager.GetInstance().paintCur--;
         UpdatePaintUI();
-        Instantiate(GameManager.GetInstance().paintGlob, shotPosition.position, GameManager.GetInstance().mainCamera.transform.rotation);
+        PaintGlob paint = Instantiate(GameManager.GetInstance().paintGlob, shotPosition.position, GameManager.GetInstance().mainCamera.transform.rotation).GetComponent<PaintGlob>();
+        paint.paintType = availablePaints[currentlyUsedPaintIndex].type;
+        paint.paintColor = availablePaints[currentlyUsedPaintIndex].color;
         canShoot = false;
         yield return new WaitForSeconds(shotCooldown);
         canShoot = true;
@@ -333,6 +360,7 @@ public class Controller : MonoBehaviour
                 else
                     desiredMoveSpeed = sprintSpeed;
             }
+            desiredMoveSpeed *= paintSpeedMult;
         }
 
         if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
@@ -498,7 +526,7 @@ public class Controller : MonoBehaviour
 
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(transform.up * jumpForce * paintJumpMult, ForceMode.Impulse);
 
         GetComponent<PlayerAudio>().PlayJumpSound();
     }
