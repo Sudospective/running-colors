@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class LevelCompleteMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject winScreen;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            ActivateWinScreen();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void ActivateWinScreen()
     {
-        
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
