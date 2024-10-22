@@ -32,7 +32,7 @@ public class PaintGlob : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Event"))
         {
             return;
         }
@@ -46,7 +46,7 @@ public class PaintGlob : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Event"))
         {
             return;
         }

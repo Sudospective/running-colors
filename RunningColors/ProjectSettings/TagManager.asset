@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HUDCanvas
   - TestNotifRect
+  - Event
   layers:
   - Default
   - TransparentFX
