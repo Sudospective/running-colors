@@ -173,6 +173,11 @@ public class Controller : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("Player"))
+        {
+            return;
+        }
+
         PaintType originalPaintType = interactivePaintType;
         interactivePaintType = PaintType.None;
         if (originalPaintType != interactivePaintType)
