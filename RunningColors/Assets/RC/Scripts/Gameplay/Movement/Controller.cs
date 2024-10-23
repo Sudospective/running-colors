@@ -62,7 +62,7 @@ public class Controller : MonoBehaviour
     public Transform orientation;
 
     [Header("Paint")]
-    public PaintStats[] availablePaints;
+    public List<PaintStats> availablePaints;
     public Transform shotPosition;
     public float shotCooldown;
     public TMP_Text paintCurrent;
@@ -114,7 +114,10 @@ public class Controller : MonoBehaviour
         GameManager.GetInstance().paintCur = GameManager.GetInstance().paintMax;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        canShoot = true;
+        if (availablePaints.Count > 0)
+        {
+            canShoot = true;
+        }
         interactivePaintType = PaintType.None;
 
         startYScale = transform.localScale.y;
@@ -147,13 +150,25 @@ public class Controller : MonoBehaviour
         CheckWallrunning();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") || canShoot)
+        {
+            return;
+        }
+        PaintBrush brush = other.GetComponent<PaintBrush>();
+        if (brush != null)
+        {
+            canShoot = true;
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             return;
         }
-
         PaintType originalPaintType = interactivePaintType;
         IPaint paint = other.GetComponent<IPaint>();
         if (paint != null)
@@ -249,12 +264,12 @@ public class Controller : MonoBehaviour
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
 
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && availablePaints.Count > 0)
         {
             currentlyUsedPaintIndex++;
-            while (currentlyUsedPaintIndex >= availablePaints.Length)
+            while (currentlyUsedPaintIndex >= availablePaints.Count)
             {
-                currentlyUsedPaintIndex -= availablePaints.Length;
+                currentlyUsedPaintIndex -= availablePaints.Count;
             }
         }
     }

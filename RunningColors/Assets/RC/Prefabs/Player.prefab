@@ -148,9 +148,7 @@ MonoBehaviour:
   isWallrunning: 0
   maxSlopeAngle: 30
   orientation: {fileID: 2190329491179040338}
-  availablePaints:
-  - {fileID: 11400000, guid: a1c6e80d0005b7e46903bfd0283aab09, type: 2}
-  - {fileID: 11400000, guid: 67c57f755b8cc834092a146bbcce3506, type: 2}
+  availablePaints: []
   shotPosition: {fileID: 9147696870230128657}
   shotCooldown: 1
   paintCurrent: {fileID: 0}
@@ -285,6 +283,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   screenFader: {fileID: 0}
   fallThreshold: -5
+  loseScreen: {fileID: 0}
 --- !u!114 &3454486826073624133
 MonoBehaviour:
   m_ObjectHideFlags: 0
