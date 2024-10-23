@@ -235,7 +235,7 @@ public class Controller : MonoBehaviour
         }
         if (Input.GetButton("Fire1") && canShoot)
         {
-            StartCoroutine(ShootPaint());
+            ShootPaint();
         }
 
         if (Input.GetKeyDown(crouchKey))
@@ -259,17 +259,22 @@ public class Controller : MonoBehaviour
         }
     }
 
-    private IEnumerator ShootPaint()
+    private void ShootPaint()
     {
+        if (!canShoot)
+            return;
         GameManager.GetInstance().paintCur--;
         UpdatePaintUI();
         PaintGlob paint = Instantiate(GameManager.GetInstance().paintGlob, shotPosition.position, GameManager.GetInstance().mainCamera.transform.rotation).GetComponent<PaintGlob>();
         paint.paintType = availablePaints[currentlyUsedPaintIndex].type;
         paint.paintColor = availablePaints[currentlyUsedPaintIndex].color;
-        canShoot = false;
-        yield return new WaitForSeconds(shotCooldown);
-        Debug.Log("Able to shoot again");
-        canShoot = true;
+        ToggleShooting();
+        Invoke("ToggleShooting", shotCooldown);
+    }
+
+    private void ToggleShooting()
+    {
+        canShoot = !canShoot;
     }
 
     private void UpdatePaintUI()
