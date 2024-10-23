@@ -4288,6 +4288,7 @@ GameObject:
   - component: {fileID: 890765592}
   - component: {fileID: 890765594}
   - component: {fileID: 890765593}
+  - component: {fileID: 890765595}
   m_Layer: 0
   m_Name: ExplainJump
   m_TagString: Event
@@ -4304,7 +4305,7 @@ Transform:
   m_GameObject: {fileID: 890765591}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 2, z: 0}
+  m_LocalPosition: {x: 1, y: 2, z: -4.5688505}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4340,6 +4341,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890765591}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &890765595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890765591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6370f98dc1d5aaa42966c65e4645abfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notifObject: {fileID: 11400000, guid: 99ceef27c6c7a384da6b062e4a383938, type: 2}
+  notifPublisher: {fileID: 11400000, guid: f29e8989f7baf4f4eb8acd8519857fdd, type: 2}
 --- !u!1 &942154730
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,6 +5814,7 @@ GameObject:
   - component: {fileID: 1303238863}
   - component: {fileID: 1303238865}
   - component: {fileID: 1303238864}
+  - component: {fileID: 1303238866}
   m_Layer: 0
   m_Name: ExplainWallRun
   m_TagString: Event
@@ -5851,6 +5867,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303238862}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1303238866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303238862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6370f98dc1d5aaa42966c65e4645abfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notifObject: {fileID: 11400000, guid: 9ad8b7f726604674aa3314c184f72da5, type: 2}
+  notifPublisher: {fileID: 11400000, guid: f29e8989f7baf4f4eb8acd8519857fdd, type: 2}
 --- !u!1 &1319594182
 GameObject:
   m_ObjectHideFlags: 0
@@ -7607,6 +7637,7 @@ GameObject:
   - component: {fileID: 1740692519}
   - component: {fileID: 1740692521}
   - component: {fileID: 1740692520}
+  - component: {fileID: 1740692522}
   m_Layer: 0
   m_Name: ExplainClimb
   m_TagString: Event
@@ -7659,6 +7690,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740692518}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1740692522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740692518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6370f98dc1d5aaa42966c65e4645abfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notifObject: {fileID: 11400000, guid: fcd4bf9071367c64886076fd06aceef2, type: 2}
+  notifPublisher: {fileID: 11400000, guid: f29e8989f7baf4f4eb8acd8519857fdd, type: 2}
 --- !u!1 &1773146365
 GameObject:
   m_ObjectHideFlags: 0
@@ -8300,6 +8345,7 @@ GameObject:
   - component: {fileID: 1841801582}
   - component: {fileID: 1841801584}
   - component: {fileID: 1841801583}
+  - component: {fileID: 1841801585}
   m_Layer: 0
   m_Name: ExplainCrouch
   m_TagString: Event
@@ -8352,6 +8398,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841801581}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1841801585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841801581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6370f98dc1d5aaa42966c65e4645abfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notifObject: {fileID: 11400000, guid: f245667c3aed3fe498f2f40b6955ef1c, type: 2}
+  notifPublisher: {fileID: 11400000, guid: f29e8989f7baf4f4eb8acd8519857fdd, type: 2}
 --- !u!1 &1917728820
 GameObject:
   m_ObjectHideFlags: 0
@@ -8783,6 +8843,7 @@ GameObject:
   - component: {fileID: 1961872456}
   - component: {fileID: 1961872458}
   - component: {fileID: 1961872457}
+  - component: {fileID: 1961872459}
   m_Layer: 0
   m_Name: ExplainPaintSpeed
   m_TagString: Event
@@ -8835,6 +8896,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961872455}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1961872459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961872455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6370f98dc1d5aaa42966c65e4645abfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notifObject: {fileID: 11400000, guid: e8d36d17be52c2248af8eba94a815901, type: 2}
+  notifPublisher: {fileID: 11400000, guid: f29e8989f7baf4f4eb8acd8519857fdd, type: 2}
 --- !u!4 &1982354398 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
@@ -8956,6 +9031,7 @@ GameObject:
   - component: {fileID: 2039755377}
   - component: {fileID: 2039755379}
   - component: {fileID: 2039755378}
+  - component: {fileID: 2039755380}
   m_Layer: 0
   m_Name: ExplainWallJump
   m_TagString: Event
@@ -9008,6 +9084,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039755376}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2039755380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039755376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6370f98dc1d5aaa42966c65e4645abfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notifObject: {fileID: 11400000, guid: 33031a8cccb65964c84d10fbb5b62e95, type: 2}
+  notifPublisher: {fileID: 11400000, guid: f29e8989f7baf4f4eb8acd8519857fdd, type: 2}
 --- !u!1 &2040219632
 GameObject:
   m_ObjectHideFlags: 0
