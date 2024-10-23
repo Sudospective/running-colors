@@ -45,3 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 640975838099146118, guid: 2bbdc9b4a65d33a41ba73e8ee29cf10d, type: 3}
+  spawnPoint: {fileID: 0}
+  screenFader: {fileID: 0}
+  loseScreen: {fileID: 0}
+  paintUI: {fileID: 0}

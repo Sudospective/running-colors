@@ -7,6 +7,7 @@ public class PlayerSpawn : MonoBehaviour
     public GameObject playerPrefab;
     public Transform spawnPoint;
     public ScreenFader screenFader;
+    public GameObject loseScreen;
     public TMPro.TextMeshProUGUI paintUI;
 
 
@@ -54,6 +55,7 @@ public class PlayerSpawn : MonoBehaviour
         {
             fallDetector.playerTransform = player.transform;
             fallDetector.screenFader = screenFader;
+            fallDetector.loseScreen = loseScreen;
         }
 
     }
