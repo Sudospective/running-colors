@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestNotification
   m_EditorClassIdentifier: 
   notificationMessage: THIS IS A TEST
-  notificationPrefab: {fileID: 7622552970543701044, guid: f3f78be21fb7ebd4fb5e34fae875018b, type: 3}
+  notificationPrefab: {fileID: 698505295476365753, guid: 9bfb1f1beab6fc3468f73bec35647639, type: 3}
   disableAfterTimer: 1
   disableTimer: 5
   removeByKey: 0
