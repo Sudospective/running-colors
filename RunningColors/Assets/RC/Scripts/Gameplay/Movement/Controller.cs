@@ -173,6 +173,11 @@ public class Controller : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.CompareTag("Player"))
+        {
+            return;
+        }
+
         PaintType originalPaintType = interactivePaintType;
         interactivePaintType = PaintType.None;
         if (originalPaintType != interactivePaintType)
@@ -192,24 +197,19 @@ public class Controller : MonoBehaviour
         {
             case PaintType.Speed:
                 // Increase player top speed
-                Debug.Log("Speed");
                 paintSpeedMult = GameManager.GetInstance().speedPaintMult;
-                Debug.Log(paintSpeedMult);
                 break;
             case PaintType.Jump:
                 // Increase player jump height
-                Debug.Log("Jump");
                 paintJumpMult = GameManager.GetInstance().jumpPaintMult;
                 break;
             case PaintType.Stick:
                 // Decrease player top speed and jump height
-                Debug.Log("Stick");
                 paintSpeedMult = 1.0f / GameManager.GetInstance().speedPaintMult;
                 paintJumpMult = 1.0f / GameManager.GetInstance().jumpPaintMult;
                 break;
             case PaintType.None:
                 // Reset top speed and jump height
-                Debug.Log("None");
                 paintSpeedMult = 1.0f;
                 paintJumpMult = 1.0f;
                 break;
@@ -233,9 +233,9 @@ public class Controller : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
-        if (Input.GetButton("Fire1") && canShoot && GameManager.GetInstance().paintCur > 0)
+        if (Input.GetButton("Fire1") && canShoot)
         {
-            StartCoroutine(ShootPaint());
+            ShootPaint();
         }
 
         if (Input.GetKeyDown(crouchKey))
@@ -259,21 +259,28 @@ public class Controller : MonoBehaviour
         }
     }
 
-    private IEnumerator ShootPaint()
+    private void ShootPaint()
     {
+        if (!canShoot)
+            return;
         GameManager.GetInstance().paintCur--;
         UpdatePaintUI();
         PaintGlob paint = Instantiate(GameManager.GetInstance().paintGlob, shotPosition.position, GameManager.GetInstance().mainCamera.transform.rotation).GetComponent<PaintGlob>();
         paint.paintType = availablePaints[currentlyUsedPaintIndex].type;
         paint.paintColor = availablePaints[currentlyUsedPaintIndex].color;
-        canShoot = false;
-        yield return new WaitForSeconds(shotCooldown);
-        canShoot = true;
+        ToggleShooting();
+        Invoke("ToggleShooting", shotCooldown);
+    }
+
+    private void ToggleShooting()
+    {
+        canShoot = !canShoot;
     }
 
     private void UpdatePaintUI()
     {
         //paintCurrent.text = "Paint: " + currentPaint.ToString();
+        Debug.Log("Paint Left: " + GameManager.GetInstance().paintCur.ToString());
 
         if (GameManager.GetInstance().paintCur <= 0)
         {
