@@ -5812,7 +5812,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: dshajkljdlkajlksdjgkslnooweooajson
+  m_text: 'CREDITS
+
+    
+
+    Ami Violet
+
+    Andrew Robinson
+
+    Samira Barber
+
+    Trentan
+    Madison
+
+    
+
+    Jump1 Audio by pejena_larva on Freesound.org
+
+    Jump2
+    Audio by felixyadomi on Freesound.org
+
+    Wheels by Note on Unity Asset Store
+
+    Woosh
+    Audio by _kx.kah on Freesound.org'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d51a8f62b2bed4c43b4dc4eeb4ab8b3c, type: 2}
   m_sharedMaterial: {fileID: 3376661872136028085, guid: d51a8f62b2bed4c43b4dc4eeb4ab8b3c, type: 2}

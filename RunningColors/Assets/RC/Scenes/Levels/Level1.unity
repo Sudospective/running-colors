@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8992,13 +8992,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4839502117950975637, guid: cd38a6fcb280eef4c91fb77b45cc7fb9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816261880100006421, guid: cd38a6fcb280eef4c91fb77b45cc7fb9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8816261880100006421, guid: cd38a6fcb280eef4c91fb77b45cc7fb9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8816261880100006421, guid: cd38a6fcb280eef4c91fb77b45cc7fb9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.75
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 8816261880100006421, guid: cd38a6fcb280eef4c91fb77b45cc7fb9, type: 3}
       propertyPath: m_LocalPosition.z
