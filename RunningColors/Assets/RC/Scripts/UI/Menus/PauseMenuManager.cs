@@ -25,8 +25,9 @@ public class PauseMenuManager : MonoBehaviour
 
     Stack<GameObject> openedMenus = new Stack<GameObject>();
 
-    public bool isPaused { get; private set; }
-    public bool isInPlayMode { get; set; } = true;
+    static bool isPaused;
+    
+    static bool isInPlayMode = true;
 
     private void Awake()
     {
@@ -74,8 +75,11 @@ public class PauseMenuManager : MonoBehaviour
         if (Timer.Instance != null)
             Timer.Instance.StartTimer();
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (isInPlayMode)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
 
         if (menuActive != null && menuRoot != null)
         {
@@ -130,5 +134,23 @@ public class PauseMenuManager : MonoBehaviour
         }
         else
             StateUnpause();
+    }
+    /// <summary>
+    /// This function sets the play mode. In play mode, the player
+    /// can play the game and access the pause menu.
+    /// </summary>
+    /// <param name="playMode"></param>
+    public static void SetPlayMode(bool playMode)
+    {
+        isInPlayMode = playMode;
+    }
+
+    /// <summary>
+    /// This function returns the pause state.
+    /// </summary>
+    /// <returns name="isPaused"></returns>
+    public static bool GetPauseState()
+    {
+        return isPaused;
     }
 }

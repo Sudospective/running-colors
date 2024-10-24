@@ -7,6 +7,7 @@ public class NextLevel : MonoBehaviour
     {
         PauseMenuManager.Instance.StateUnpause();
         nextSceneIndex = SceneLoader.GetCurrentSceneIndex() + 1;
+        Debug.Log("Next Scene Index: " + nextSceneIndex);
         SceneLoader.LoadScene((SceneLoader.SceneName)nextSceneIndex);
     }
 }

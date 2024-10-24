@@ -19,15 +19,15 @@ public class LevelCompleteMenu : MonoBehaviour
         if (_winEventPublisher != null)
             _winEventPublisher.OnLevelComplete -= OpenLevelCompleteMenu;
         
-        PauseMenuManager.Instance.isInPlayMode = true;
+        PauseMenuManager.SetPlayMode(true);
     }
 
     void OpenLevelCompleteMenu()
     {
-        PauseMenuManager.Instance.isInPlayMode = false;
+        PauseMenuManager.SetPlayMode(false);
         PauseMenuManager.Instance.StatePause();
-        UICanvas.SetActive(PauseMenuManager.Instance.isPaused);
-        levelCompletePanel.SetActive(PauseMenuManager.Instance.isPaused);
+        UICanvas.SetActive(PauseMenuManager.GetPauseState());
+        levelCompletePanel.SetActive(PauseMenuManager.GetPauseState());
 
         if (!SceneLoader.HasNextScene)
             nextLevelButton.SetActive(false);

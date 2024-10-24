@@ -34,6 +34,8 @@ public class ButtonFunctions : MonoBehaviour
 
     public void MainMenu()
     {
+        PauseMenuManager.SetPlayMode(false);
+        PauseMenuManager.Instance.StateUnpause();
         SceneLoader.LoadScene(SceneLoader.SceneName.MainMenu);
     }
 

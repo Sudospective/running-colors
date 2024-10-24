@@ -158,6 +158,9 @@ MonoBehaviour:
   bobbingAmount: 0.05
   wallrunTiltAngle: 15
   tiltSpeed: 5
+  defaultFOV: 60
+  dashFOV: 80
+  fovTransitionSpeed: 5
 --- !u!1 &8565657885399618941
 GameObject:
   m_ObjectHideFlags: 0

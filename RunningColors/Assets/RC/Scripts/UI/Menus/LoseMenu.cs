@@ -18,14 +18,14 @@ public class LoseMenu : MonoBehaviour
         if (_loseEventPublisher != null)
             _loseEventPublisher.OnLose -= OpenLoseMenu;
 
-        PauseMenuManager.Instance.isInPlayMode = true;
+        PauseMenuManager.SetPlayMode(true);
     }
 
     void OpenLoseMenu()
     {
-        PauseMenuManager.Instance.isInPlayMode = false;
+        PauseMenuManager.SetPlayMode(false);
         PauseMenuManager.Instance.StatePause();
-        UICanvas.SetActive(PauseMenuManager.Instance.isPaused);
-        losePanel.SetActive(PauseMenuManager.Instance.isPaused);
+        UICanvas.SetActive(PauseMenuManager.GetPauseState());
+        losePanel.SetActive(PauseMenuManager.GetPauseState());
     }
 }

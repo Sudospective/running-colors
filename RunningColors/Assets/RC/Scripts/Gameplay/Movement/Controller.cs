@@ -133,7 +133,7 @@ public class Controller : MonoBehaviour
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        if (!PauseMenuManager.Instance.isPaused)
+        if (!PauseMenuManager.GetPauseState())
         {
             MyInput();
             SpeedControl();
