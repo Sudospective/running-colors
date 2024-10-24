@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FallDetection : MonoBehaviour
@@ -8,7 +7,7 @@ public class FallDetection : MonoBehaviour
     public ScreenFader screenFader;
     public float fallThreshold = -5f;
 
-    public GameObject loseScreen;
+    [SerializeField] LoseEventPublisherSO loseEventPublisher;
 
     private void Update()
     {
@@ -16,7 +15,6 @@ public class FallDetection : MonoBehaviour
         {
             return;
         }
-        
         
         if(playerTransform.position.y < fallThreshold)
         {
@@ -35,9 +33,6 @@ public class FallDetection : MonoBehaviour
     {
         screenFader.FadeFromBlack();
         yield return new WaitForSeconds(screenFader.fadeDuration);
-        loseScreen.SetActive(true);
-        Time.timeScale = 0;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        loseEventPublisher.RaiseEvent();
     }
 }

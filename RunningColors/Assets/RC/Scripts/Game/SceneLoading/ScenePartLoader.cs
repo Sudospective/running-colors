@@ -6,7 +6,9 @@ public enum CheckMethod
     Distance,
     Trigger
 }
-
+/// <summary>
+/// This class is used to load and unload level scene parts as the player traverses the level
+/// </summary>
 public class ScenePartLoader : MonoBehaviour
 {
     [Tooltip("Transform of the player")]

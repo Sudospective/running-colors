@@ -465,7 +465,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1752454096725176570}
         m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
-        m_MethodName: MainMenu
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3263,6 +3263,7 @@ GameObject:
   - component: {fileID: 7677517780768774203}
   - component: {fileID: 1033170612536622430}
   - component: {fileID: 3653965236969590379}
+  - component: {fileID: 6056545152524276581}
   m_Layer: 0
   m_Name: Next Level
   m_TagString: Untagged
@@ -3371,7 +3372,55 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1033170612536622430}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 623033788786937141}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8492844549322902503}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6056545152524276581}
+        m_TargetAssemblyTypeName: NextLevel, Assembly-CSharp
+        m_MethodName: OnNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6056545152524276581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458201686352465546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68c4eba16788e84383619aa09284975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1524740198137823500
 GameObject:
   m_ObjectHideFlags: 0
@@ -16513,6 +16562,8 @@ GameObject:
   m_Component:
   - component: {fileID: 204883863205590133}
   - component: {fileID: 775267315595654609}
+  - component: {fileID: 9088555412792758402}
+  - component: {fileID: 7465744135616578194}
   - component: {fileID: 1752454096725176570}
   m_Layer: 0
   m_Name: UI
@@ -16555,6 +16606,37 @@ MonoBehaviour:
   menuOptions: {fileID: 8331908899765416227}
   menuSettings: {fileID: 7636662947076980169}
   menuControls: {fileID: 7436213991830102778}
+--- !u!114 &9088555412792758402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6587170439619063660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9235e90a7198ada42850824fb4d77ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UICanvas: {fileID: 8492844549322902503}
+  levelCompletePanel: {fileID: 623033788786937141}
+  nextLevelButton: {fileID: 0}
+  _winEventPublisher: {fileID: 11400000, guid: e64b5857c1e113348b96dffb5ce2aa75, type: 2}
+--- !u!114 &7465744135616578194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6587170439619063660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6e8cf07e8d0664b926080d5906af5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UICanvas: {fileID: 8492844549322902503}
+  losePanel: {fileID: 3819310849899957631}
+  _loseEventPublisher: {fileID: 11400000, guid: 5cc6222ce40354e428144024fc5cbae2, type: 2}
 --- !u!114 &1752454096725176570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24645,6 +24727,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2480847249381603683}
     m_Modifications:
+    - target: {fileID: 245619810904251821, guid: ca2a25eb4854ee648bf7ae7a33dba4d6, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 694808036891961677, guid: ca2a25eb4854ee648bf7ae7a33dba4d6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

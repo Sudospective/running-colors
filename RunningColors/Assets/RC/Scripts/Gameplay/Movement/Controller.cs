@@ -134,9 +134,11 @@ public class Controller : MonoBehaviour
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         if (!PauseMenuManager.Instance.isPaused)
+        {
             MyInput();
-        SpeedControl();
-        StateHandler();
+            SpeedControl();
+            StateHandler();
+        }
 
         if (state == MovementState.walking || state == MovementState.sprinting || state == MovementState.crouching)
         {

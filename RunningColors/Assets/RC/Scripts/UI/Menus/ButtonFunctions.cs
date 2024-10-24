@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
@@ -35,7 +34,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneLoader.LoadScene(SceneLoader.SceneName.MainMenu);
     }
 
     public void Quit()

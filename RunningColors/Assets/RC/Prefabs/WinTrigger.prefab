@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3915234161223161175}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.2213244, z: -0, w: 0.9752003}
+  m_LocalRotation: {x: 0, y: 0.2213273, z: 0, w: 0.9751996}
   m_LocalPosition: {x: 57.85, y: 50.75, z: 43.74}
   m_LocalScale: {x: 11.360538, y: 5.6674314, z: 11.360538}
   m_ConstrainProportionsScale: 0
@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a947217ad8623b644b43ff7ba1ae1413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winScreen: {fileID: 0}
+  winEventPublisher: {fileID: 11400000, guid: e64b5857c1e113348b96dffb5ce2aa75, type: 2}

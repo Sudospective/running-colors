@@ -283,7 +283,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   screenFader: {fileID: 0}
   fallThreshold: -5
-  loseScreen: {fileID: 0}
+  loseEventPublisher: {fileID: 11400000, guid: 5cc6222ce40354e428144024fc5cbae2, type: 2}
 --- !u!114 &3454486826073624133
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class PauseMenuManager : MonoBehaviour
     Stack<GameObject> openedMenus = new Stack<GameObject>();
 
     public bool isPaused { get; private set; }
+    public bool isInPlayMode { get; set; } = true;
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class PauseMenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && isInPlayMode)
         {
             if (menuActive == null)
             {
@@ -76,8 +77,11 @@ public class PauseMenuManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        menuRoot.SetActive(isPaused);
-        menuActive.SetActive(isPaused);
+        if (menuActive != null && menuRoot != null)
+        {
+            menuRoot.SetActive(isPaused);
+            menuActive.SetActive(isPaused);
+        }
         menuActive = null;
     }
 

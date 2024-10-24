@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationMessage: Press SPACE to Jump
   notificationPrefab: {fileID: 5377233874534857519, guid: fb28c9f3f9fba6640aa47edaf9acde06, type: 3}
-  disableAfterTimer: 1
+  disableAfterTimer: 0
   disableTimer: 5
   removeByKey: 1
   removeKey: 32

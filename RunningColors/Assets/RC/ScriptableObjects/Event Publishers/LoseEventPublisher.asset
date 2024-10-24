@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134f8be6a3e35254a90cc31532beed78, type: 3}
-  m_Name: PersistantGameplay
+  m_Script: {fileID: 11500000, guid: 09f1cd61887f7df4680feb4d623f961f, type: 3}
+  m_Name: LoseEventPublisher
   m_EditorClassIdentifier: 
-  sceneName: PersistantGameplay
-  music: {fileID: 0}

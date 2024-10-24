@@ -2,22 +2,34 @@ using UnityEngine;
 
 public class LevelCompleteMenu : MonoBehaviour
 {
-    public GameObject winScreen;
+    [SerializeField] GameObject UICanvas;
+    [SerializeField] GameObject levelCompletePanel;
+    [SerializeField] GameObject nextLevelButton;
 
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] WinEventPublisherSO _winEventPublisher;
+
+    private void OnEnable()
     {
-        if (other.CompareTag("Player"))
-        {
-            ActivateWinScreen();
-        }
+        if (_winEventPublisher != null)
+            _winEventPublisher.OnLevelComplete += OpenLevelCompleteMenu;
     }
 
-    void ActivateWinScreen()
+    private void OnDisable()
     {
-        winScreen.SetActive(true);
-        Time.timeScale = 0;
+        if (_winEventPublisher != null)
+            _winEventPublisher.OnLevelComplete -= OpenLevelCompleteMenu;
+        
+        PauseMenuManager.Instance.isInPlayMode = true;
+    }
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+    void OpenLevelCompleteMenu()
+    {
+        PauseMenuManager.Instance.isInPlayMode = false;
+        PauseMenuManager.Instance.StatePause();
+        UICanvas.SetActive(PauseMenuManager.Instance.isPaused);
+        levelCompletePanel.SetActive(PauseMenuManager.Instance.isPaused);
+
+        if (!SceneLoader.HasNextScene)
+            nextLevelButton.SetActive(false);
     }
 }
