@@ -13,8 +13,8 @@ public static class SceneLoader
         Loading = 0,
         MainMenu = 1,
         Level1 = 2,
-        Level2 = 4,
-        Level3 = 3,
+        Level2 = 3,
+        Level3 = 4,
         Level4 = 5
     }
 

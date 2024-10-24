@@ -8,6 +8,7 @@ public class LoseEventPublisherSO : ScriptableObject
 
     public void RaiseEvent()
     {
+        Debug.Log("Player lost");
         OnLose?.Invoke();
     }
 }

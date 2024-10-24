@@ -1905,6 +1905,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintBrush
       objectReference: {fileID: 0}
+    - target: {fileID: 8537831947358561592, guid: 374cb4cac547eec408a5e7164b691ac1, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: a1c6e80d0005b7e46903bfd0283aab09, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8491,7 +8495,6 @@ PrefabInstance:
       propertyPath: screenFader
       value: 
       objectReference: {fileID: 1313391804}
-      objectReference: {fileID: 0}
     - target: {fileID: 6570665192545870159, guid: c8083f38eba5caa4e8ff1a8c0dd6d96d, type: 3}
       propertyPath: m_Name
       value: PlayerSpawner
