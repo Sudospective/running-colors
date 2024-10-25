@@ -10,8 +10,8 @@ public static class SceneLoader
     public enum SceneName
     {
         //PersistentGameplay = 0,
-        Loading = 0,
-        MainMenu = 1,
+        MainMenu = 0,
+        Loading = 1,
         Level1 = 2,
         Level2 = 3,
         Level3 = 4,
