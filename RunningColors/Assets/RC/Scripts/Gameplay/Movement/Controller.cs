@@ -226,9 +226,12 @@ public class Controller : MonoBehaviour
                 paintJumpMult = 1.0f / GameManager.GetInstance().jumpPaintMult;
                 break;
             case PaintType.None:
-                // Reset top speed and jump height
-                paintSpeedMult = 1.0f;
-                paintJumpMult = 1.0f;
+                // Reset top speed and jump height if on ground
+                if (isGrounded)
+                {
+                    paintSpeedMult = 1.0f;
+                    paintJumpMult = 1.0f;
+                }
                 break;
         }
     }

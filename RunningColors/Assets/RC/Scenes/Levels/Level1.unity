@@ -7821,6 +7821,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3872118119793880673, guid: 3915bb0ee46bfa34286df3dfd9c20fb2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3915234161223161175, guid: 3915bb0ee46bfa34286df3dfd9c20fb2, type: 3}
       propertyPath: m_Name
       value: WinTrigger
