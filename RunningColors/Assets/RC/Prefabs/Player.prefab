@@ -150,7 +150,7 @@ MonoBehaviour:
   orientation: {fileID: 2190329491179040338}
   availablePaints: []
   shotPosition: {fileID: 9147696870230128657}
-  shotCooldown: 1
+  shotCooldown: 0.1
   paintCurrent: {fileID: 0}
   state: 0
   sliding: 0

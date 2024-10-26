@@ -190,7 +190,7 @@ public class Controller : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || !isGrounded)
         {
             return;
         }
@@ -200,6 +200,19 @@ public class Controller : MonoBehaviour
         if (originalPaintType != interactivePaintType)
         {
             ReactToPaint(interactivePaintType);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isGrounded)
+        {
+            PaintType originalPaintType = interactivePaintType;
+            interactivePaintType = PaintType.None;
+            if (originalPaintType != interactivePaintType)
+            {
+                ReactToPaint(interactivePaintType);
+            }
         }
     }
 
@@ -227,10 +240,7 @@ public class Controller : MonoBehaviour
                 break;
             case PaintType.None:
                 // Reset top speed and jump height if on ground
-                if (isGrounded)
-                {
-                    paintSpeedMult = 1.0f;
-                }
+                paintSpeedMult = 1.0f;
                 paintJumpMult = 1.0f;
                 break;
         }
