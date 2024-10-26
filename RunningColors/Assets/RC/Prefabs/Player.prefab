@@ -146,7 +146,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   isWallrunning: 0
-  maxSlopeAngle: 30
+  maxSlopeAngle: 150
   orientation: {fileID: 2190329491179040338}
   availablePaints: []
   shotPosition: {fileID: 9147696870230128657}
