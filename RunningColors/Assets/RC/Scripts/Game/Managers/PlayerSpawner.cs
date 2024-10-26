@@ -21,7 +21,7 @@ public class PlayerSpawn : MonoBehaviour
         GameManager.GetInstance().SetPlayer(player);
 
         Controller playerController = player.GetComponent<Controller>();
-        if (playerController != null )
+        if (playerController != null)
         {
             playerController.paintCurrent = FindObjectOfType<TMPro.TextMeshProUGUI>();
         }
@@ -53,5 +53,7 @@ public class PlayerSpawn : MonoBehaviour
             fallDetector.playerTransform = player.transform;
             fallDetector.screenFader = screenFader;
         }
+
+        UserSettings.Instance.ApplySettingsToCamera();
     }
 }
