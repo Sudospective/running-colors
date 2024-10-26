@@ -52,6 +52,7 @@ public class Controller : MonoBehaviour
 
     [Header("Wall Check")]
     public LayerMask whatIsWall;
+    private LayerMask wallRunLayers;
     public bool isWallrunning;
 
     [Header("Slope Handling")]
@@ -118,6 +119,9 @@ public class Controller : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        wallRunLayers = whatIsWall | whatIsGround;
+
         if (availablePaints.Count > 0)
         {
             canShoot = true;
@@ -592,11 +596,11 @@ public class Controller : MonoBehaviour
 
     public bool IsWallLeft()
     {
-        return Physics.Raycast(transform.position, -orientation.right, 1f, whatIsWall);
+        return Physics.Raycast(transform.position, -orientation.right, 1f, wallRunLayers);
     }
     public bool IsWallRight()
     {
-        return Physics.Raycast(transform.position, orientation.right, 1f, whatIsWall);
+        return Physics.Raycast(transform.position, orientation.right, 1f, wallRunLayers);
     }
 
     private void CheckWallrunning()
