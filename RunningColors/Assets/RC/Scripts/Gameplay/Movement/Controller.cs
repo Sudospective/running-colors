@@ -296,6 +296,11 @@ public class Controller : MonoBehaviour
         if (!canShoot)
             return;
         GameManager.GetInstance().paintCur--;
+        if (GameManager.GetInstance().paintCur <= 0)
+        {
+            canShoot = false;
+            return;
+        }
         UpdatePaintUI();
         PaintGlob paint = Instantiate(GameManager.GetInstance().paintGlob, shotPosition.position, GameManager.GetInstance().mainCamera.transform.rotation).GetComponent<PaintGlob>();
         paint.paintType = availablePaints[currentlyUsedPaintIndex].type;
