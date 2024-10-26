@@ -230,8 +230,8 @@ public class Controller : MonoBehaviour
                 if (isGrounded)
                 {
                     paintSpeedMult = 1.0f;
-                    paintJumpMult = 1.0f;
                 }
+                paintJumpMult = 1.0f;
                 break;
         }
     }
