@@ -687,6 +687,8 @@ GameObject:
   - component: {fileID: 3432931264054959154}
   - component: {fileID: 2979726811282473734}
   - component: {fileID: 7845004381423282638}
+  - component: {fileID: 2709207747585978939}
+  - component: {fileID: 4287556648482372761}
   m_Layer: 0
   m_Name: ScreenFader
   m_TagString: Untagged
@@ -734,7 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -763,5 +765,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9c7a5aa0e0ec94b902db94f853bc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeImage: {fileID: 2979726811282473734}
-  fadeDuration: 1
+  anim: {fileID: 4287556648482372761}
+  loseEventPublisher: {fileID: 11400000, guid: 5cc6222ce40354e428144024fc5cbae2, type: 2}
+--- !u!225 &2709207747585978939
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560563537798103735}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &4287556648482372761
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560563537798103735}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac3cbd84ede019d4eb4fd021c7e76edb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

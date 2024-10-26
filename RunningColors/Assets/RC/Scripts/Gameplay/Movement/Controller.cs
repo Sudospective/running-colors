@@ -112,6 +112,10 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         GameManager.GetInstance().paintCur = GameManager.GetInstance().paintMax;
+
+        if (paintCurrent != null)
+            paintCurrent.text = GameManager.GetInstance().paintCur.ToString();
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         if (availablePaints.Count > 0)
@@ -301,6 +305,7 @@ public class Controller : MonoBehaviour
         paint.paintType = availablePaints[currentlyUsedPaintIndex].type;
         paint.paintColor = availablePaints[currentlyUsedPaintIndex].color;
         ToggleShooting();
+        if (GameManager.GetInstance().paintCur <= 0) return;
         Invoke("ToggleShooting", shotCooldown);
     }
 
@@ -313,6 +318,9 @@ public class Controller : MonoBehaviour
     {
         //paintCurrent.text = "Paint: " + currentPaint.ToString();
         Debug.Log("Paint Left: " + GameManager.GetInstance().paintCur.ToString());
+        
+        if (paintCurrent != null)
+            paintCurrent.text = GameManager.GetInstance().paintCur.ToString();
 
         if (GameManager.GetInstance().paintCur <= 0)
         {
