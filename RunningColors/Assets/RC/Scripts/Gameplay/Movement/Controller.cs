@@ -255,6 +255,8 @@ public class Controller : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        if (Time.timeScale == 0) return;
+
         if (Input.GetKey(jumpKey) && readyToJump && isGrounded)
         {
             readyToJump = false;
