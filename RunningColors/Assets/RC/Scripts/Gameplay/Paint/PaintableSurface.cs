@@ -16,7 +16,7 @@ public class PaintableSurface : MonoBehaviour,
         int pow = (int)Mathf.Pow(2.0f, (float)GameManager.GetInstance().paintResolution + 3);
         int globSize = GameManager.GetInstance().globSize;
 
-        tex = new Texture2D((int)size.x * pow, (int)size.y * pow);
+        tex = new Texture2D(Mathf.Abs((int)size.x) * pow, Mathf.Abs((int)size.y) * pow);
         paintTypes = new PaintType[tex.width, tex.height];
 
         Material mat = GetComponent<Renderer>().material;
