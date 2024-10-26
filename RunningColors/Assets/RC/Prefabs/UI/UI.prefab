@@ -17125,7 +17125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UICanvas: {fileID: 8492844549322902503}
   levelCompletePanel: {fileID: 623033788786937141}
-  nextLevelButton: {fileID: 0}
+  nextLevelButton: {fileID: 1458201686352465546}
   _winEventPublisher: {fileID: 11400000, guid: e64b5857c1e113348b96dffb5ce2aa75, type: 2}
 --- !u!114 &7465744135616578194
 MonoBehaviour:

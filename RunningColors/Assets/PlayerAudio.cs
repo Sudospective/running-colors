@@ -61,6 +61,13 @@ public class PlayerAudio : MonoBehaviour
 
     private void HandleFootsteps()
     {
+        if(Time.timeScale == 0)
+        {
+            FootstepSource.Pause();
+            return;
+        }
+        
+        
         if (playerController.isGrounded && playerController.IsMoving())
         {
             if (!isPlayingFootsteps)
@@ -91,7 +98,7 @@ public class PlayerAudio : MonoBehaviour
             FootstepSource.Play();
         }
 
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSecondsRealtime(delay);
 
         FootstepSource.Pause();
 

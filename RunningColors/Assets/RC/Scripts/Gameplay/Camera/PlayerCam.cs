@@ -35,9 +35,21 @@ public class PlayerCam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+
+        if (UserSettings.Instance == null)
+        {
+            Debug.LogError("UserSettings Instance is not initialized.");
+        }
+        else
+        {
+            sensX = UserSettings.Instance.mouseSensitivityX;
+            sensY = UserSettings.Instance.mouseSensitivityY;
+        }
         defaultYPos = transform.localPosition.y;
         cam = GetComponent<Camera>();
         playerController = FindObjectOfType<Controller>();
+
+        ApplyUserSettings();
     }
 
     private void Update()
@@ -56,6 +68,15 @@ public class PlayerCam : MonoBehaviour
         HandleCameraBobbing();
         HandleWallrunTilt();
         HandleFOVChanges();
+    }
+
+    private void ApplyUserSettings()
+    {
+        if (UserSettings.Instance != null)
+        {
+            sensX = UserSettings.Instance.mouseSensitivityX;
+            sensY = UserSettings.Instance.mouseSensitivityY;
+        }
     }
 
     private void HandleFOVChanges()

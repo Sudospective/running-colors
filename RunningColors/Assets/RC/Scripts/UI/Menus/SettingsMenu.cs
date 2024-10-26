@@ -30,10 +30,13 @@ public class SettingsMenu : MonoBehaviour
 
         if (cameraController != null)
         {
-            lookSensXSlider.value = cameraController.sensX;
-            lookSensXSlider.onValueChanged.AddListener(OnXSensitivityChanged);
+            lookSensXSlider.value = UserSettings.Instance.mouseSensitivityX;
+            lookSensYSlider.value = UserSettings.Instance.mouseSensitivityY;
 
-            lookSensYSlider.value = cameraController.sensY;
+            OnXSensitivityChanged(UserSettings.Instance.mouseSensitivityX);
+            OnYSensitivityChanged(UserSettings.Instance.mouseSensitivityY);
+
+            lookSensXSlider.onValueChanged.AddListener(OnXSensitivityChanged);
             lookSensYSlider.onValueChanged.AddListener(OnYSensitivityChanged);
         }
     }
@@ -50,10 +53,12 @@ public class SettingsMenu : MonoBehaviour
     void OnXSensitivityChanged(float newValue)
     {
         cameraController.sensX = newValue;
+        UserSettings.Instance.mouseSensitivityX = newValue;
     }
 
     void OnYSensitivityChanged(float newValue)
     {
         cameraController.sensY = newValue;
+        UserSettings.Instance.mouseSensitivityY = newValue;
     }
 }

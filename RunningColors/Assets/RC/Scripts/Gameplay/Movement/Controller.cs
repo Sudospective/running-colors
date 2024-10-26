@@ -52,6 +52,7 @@ public class Controller : MonoBehaviour
 
     [Header("Wall Check")]
     public LayerMask whatIsWall;
+    private LayerMask wallRunLayers;
     public bool isWallrunning;
 
     [Header("Slope Handling")]
@@ -112,8 +113,15 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         GameManager.GetInstance().paintCur = GameManager.GetInstance().paintMax;
+
+        if (paintCurrent != null)
+            paintCurrent.text = GameManager.GetInstance().paintCur.ToString();
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        wallRunLayers = whatIsWall | whatIsGround;
+
         if (availablePaints.Count > 0)
         {
             canShoot = true;
@@ -255,6 +263,8 @@ public class Controller : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        if (Time.timeScale == 0) return;
+
         if (Input.GetKey(jumpKey) && readyToJump && isGrounded)
         {
             readyToJump = false;
@@ -299,6 +309,7 @@ public class Controller : MonoBehaviour
         paint.paintType = availablePaints[currentlyUsedPaintIndex].type;
         paint.paintColor = availablePaints[currentlyUsedPaintIndex].color;
         ToggleShooting();
+        if (GameManager.GetInstance().paintCur <= 0) return;
         Invoke("ToggleShooting", shotCooldown);
     }
 
@@ -311,6 +322,9 @@ public class Controller : MonoBehaviour
     {
         //paintCurrent.text = "Paint: " + currentPaint.ToString();
         Debug.Log("Paint Left: " + GameManager.GetInstance().paintCur.ToString());
+        
+        if (paintCurrent != null)
+            paintCurrent.text = GameManager.GetInstance().paintCur.ToString();
 
         if (GameManager.GetInstance().paintCur <= 0)
         {
@@ -582,11 +596,11 @@ public class Controller : MonoBehaviour
 
     public bool IsWallLeft()
     {
-        return Physics.Raycast(transform.position, -orientation.right, 1f, whatIsWall);
+        return Physics.Raycast(transform.position, -orientation.right, 1f, wallRunLayers);
     }
     public bool IsWallRight()
     {
-        return Physics.Raycast(transform.position, orientation.right, 1f, whatIsWall);
+        return Physics.Raycast(transform.position, orientation.right, 1f, wallRunLayers);
     }
 
     private void CheckWallrunning()
