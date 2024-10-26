@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
@@ -5,7 +6,7 @@ public class PlayerSpawn : MonoBehaviour
     public GameObject playerPrefab;
     public Transform spawnPoint;
     public ScreenFader screenFader;
-    public TMPro.TextMeshProUGUI paintUI;
+    public TMP_Text paintUI;
 
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class PlayerSpawn : MonoBehaviour
         Controller playerController = player.GetComponent<Controller>();
         if (playerController != null )
         {
-            playerController.paintCurrent = FindObjectOfType<TMPro.TextMeshProUGUI>();
+            playerController.paintCurrent = FindObjectOfType<TMP_Text>();
         }
 
 

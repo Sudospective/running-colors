@@ -8,6 +8,7 @@ public class WinEventPublisherSO : ScriptableObject
 
     public void RaiseEvent()
     {
+        Debug.Log("Player completed the level");
         OnLevelComplete?.Invoke();
     }
 }
