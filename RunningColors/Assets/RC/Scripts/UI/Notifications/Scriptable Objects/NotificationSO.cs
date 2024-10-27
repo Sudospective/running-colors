@@ -4,16 +4,13 @@ using UnityEngine;
 public class NotificationSO: ScriptableObject
 {
     [Header("Message Customization")]
-
     [TextArea] public string notificationMessage;
 
     [Header("Notification")]
-
-    [Tooltip("Prefab for the notifications")]
+    [Tooltip("Prefab with the NotificationToast component")]
     public GameObject notificationPrefab;
 
     [Header("Notification Removal")]
-
     [Tooltip("The notification will disable after a period of time")]
     public bool disableAfterTimer;
 
