@@ -16,6 +16,7 @@ public class Sliding : MonoBehaviour
     public float slideForce;
     private float slideTimer;
 
+    public float slopeMultiplier;
     public float slideYScale;
     private float startYScale;
 
@@ -82,7 +83,9 @@ public class Sliding : MonoBehaviour
         }
         else
         {
-            rb.AddForce(ct.SlopeMoveDirection(inputDirection) * slideForce, ForceMode.Force);
+            
+            rb.AddForce(ct.SlopeMoveDirection(inputDirection) * slideForce * slopeMultiplier, ForceMode.Force);
+            rb.AddForce(Vector3.down * slideForce * 0.5f, ForceMode.Force);
         }
 
         if (slideTimer <= 0)

@@ -178,6 +178,7 @@ MonoBehaviour:
   playerObject: {fileID: 1728269914176473448}
   maxSlideTime: 0.75
   slideForce: 300
+  slopeMultiplier: 2
   slideYScale: 0.5
   slideKey: 99
 --- !u!114 &-3604570529390434670
@@ -243,7 +244,7 @@ MonoBehaviour:
   maxWallLookAngle: 30
   minWallNormalAngleChange: 5
   exitingWall: 0
-  exitWallTime: 0.1
+  exitWallTime: 0
 --- !u!114 &3755500662095230052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +284,6 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   screenFader: {fileID: 0}
   fallThreshold: -5
-  loseEventPublisher: {fileID: 11400000, guid: 5cc6222ce40354e428144024fc5cbae2, type: 2}
 --- !u!114 &3454486826073624133
 MonoBehaviour:
   m_ObjectHideFlags: 0
