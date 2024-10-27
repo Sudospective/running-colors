@@ -301,7 +301,7 @@ public class Controller : MonoBehaviour
 
     private void ShootPaint()
     {
-        if (!canShoot)
+        if (!canShoot || GameManager.GetInstance().paintCur <= 0)
             return;
         GameManager.GetInstance().paintCur--;
         UpdatePaintUI();
@@ -309,7 +309,6 @@ public class Controller : MonoBehaviour
         paint.paintType = availablePaints[currentlyUsedPaintIndex].type;
         paint.paintColor = availablePaints[currentlyUsedPaintIndex].color;
         ToggleShooting();
-        if (GameManager.GetInstance().paintCur <= 0) return;
         Invoke("ToggleShooting", shotCooldown);
     }
 
