@@ -309,7 +309,7 @@ public class Controller : MonoBehaviour
         paint.paintType = availablePaints[currentlyUsedPaintIndex].type;
         paint.paintColor = availablePaints[currentlyUsedPaintIndex].color;
         ToggleShooting();
-        Invoke("ToggleShooting", shotCooldown);
+        Invoke(nameof(ToggleShooting), shotCooldown);
     }
 
     private void ToggleShooting()
