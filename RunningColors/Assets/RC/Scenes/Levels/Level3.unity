@@ -280,10 +280,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintableSurface (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -353,10 +349,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -582,10 +574,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -963,10 +951,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1531,10 +1515,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintableSurface (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1686,10 +1666,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (13)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2310,10 +2286,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintableSurface
       objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2378,10 +2350,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2993,10 +2961,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintableSurface (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3070,10 +3034,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3222,10 +3182,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3403,10 +3359,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3625,10 +3577,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintableSurface
       objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3697,10 +3645,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3775,10 +3719,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4264,10 +4204,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (10)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7076,10 +7012,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintableSurface (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7305,10 +7237,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintableSurface (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7382,10 +7310,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8149,10 +8073,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintableSurface (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8226,10 +8146,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (12)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8305,10 +8221,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintableSurface (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8373,10 +8285,6 @@ PrefabInstance:
     - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
       propertyPath: m_Name
       value: PaintableSurface (9)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3727069669027557793, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
