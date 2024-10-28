@@ -22,9 +22,9 @@ public class PlayerSpawn : MonoBehaviour
         GameManager.GetInstance().SetPlayer(player);
 
         Controller playerController = player.GetComponent<Controller>();
-        if (playerController != null)
+        if (playerController != null && paintUI != null)
         {
-            playerController.paintCurrent = FindObjectOfType<TMP_Text>();
+            playerController.paintCurrent = paintUI;
         }
 
 
