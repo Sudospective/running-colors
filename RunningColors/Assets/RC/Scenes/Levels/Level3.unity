@@ -7247,6 +7247,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 297497344732925151, guid: 5d8b24fb1ac2ab84c927c506e8223750, type: 3}
   m_PrefabInstance: {fileID: 1867331413}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1868197366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7482765040559651072, guid: 930fe53038f68224cab94ea497476be5, type: 3}
+  m_PrefabInstance: {fileID: 1552925804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1894057583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8551,6 +8562,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5598028280654923397, guid: c8083f38eba5caa4e8ff1a8c0dd6d96d, type: 3}
+      propertyPath: paintUI
+      value: 
+      objectReference: {fileID: 1868197366}
     - target: {fileID: 5598028280654923397, guid: c8083f38eba5caa4e8ff1a8c0dd6d96d, type: 3}
       propertyPath: loseScreen
       value: 
